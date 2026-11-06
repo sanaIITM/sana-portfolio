@@ -394,6 +394,12 @@ const languageDetails=[
 function Personal(){
 const [detail,setDetail]=useState(null);
 const showDetail=(title,eyebrow,body,image,alt,credit)=>setDetail({title,eyebrow,body,image,alt,credit});
+const hobbyStories={
+'01':'I have visited Saudi Arabia, the United Arab Emirates, Bahrain, Oman, Kuwait, Qatar and Sri Lanka so far. I love discovering new places, experiencing different cultures and collecting memories. Seven countries down, and plenty more on my travel wish list.',
+'02':'K-dramas and films are some of my favourite ways to unwind. I enjoy getting immersed in characters, stories and different worlds. The last film I watched was Sense and Sensibility (2026).',
+'03':'Crafts have been part of my life since school. I was a state-level winner in Arabic calligraphy, and in high school I also won in vegetable carving and bouquet making. I enjoy the patience, detail and creativity involved in making something by hand.',
+'04':'I dream of becoming a polyglot. I can currently read and write five languages. French was my third language during schooling in Saudi Arabia, and I continued learning it in India. I began learning Malayalam from Grade 9 onwards. French and Arabic are currently at a basic A1 level of understanding and comprehension. My next goals are to become really good at French and learn German.'
+};
 const closeDetail=()=>setDetail(null);
 React.useEffect(()=>{if(!detail)return;const key=e=>{if(e.key==='Escape')closeDetail()};window.addEventListener('keydown',key);return()=>window.removeEventListener('keydown',key)},[detail]);
 return h(React.Fragment,null,
@@ -414,7 +420,7 @@ h('div',{className:'personal-section-head'},
 h('div',null,h(Eyebrow,null,'01 / THINGS I LOVE'),h('h2',{className:'personal-heading'},'A few of my favourite things.')),
 h('p',{className:'personal-sub'},'The short version first. Open any card to see the longer story.')),
 h('div',{className:'hobby-grid'},interestFeatures.map(item=>h('article',{className:'interest-photo '+item.style,key:item.n},
-h('button',{className:'click-card','aria-label':'Read more about '+item.title,onClick:()=>showDetail(item.title,item.type,item.n==='01'?'I have visited Saudi Arabia, the United Arab Emirates, Bahrain, Oman, Kuwait, Qatar and Sri Lanka so far. I love discovering new places, experiencing different cultures and collecting memories.':'',item.image,item.alt)},
+h('button',{className:'click-card','aria-label':'Read more about '+item.title,onClick:()=>showDetail(item.title,item.type,hobbyStories[item.n],item.image,item.alt)},
 h('img',{src:item.image,alt:item.alt,loading:'lazy'}),
 h('div',{className:'interest-copy'},h('small',null,item.type),h('h3',null,item.title),h('p',null,'Click to explore ↗'),h('div',{className:'mini-tags'},item.tags.slice(0,3).map(tag=>h('span',{key:tag},tag))),
 item.style==='travel'?h('div',{className:'travel-stat'},h('strong',null,'07'),h('small',null,'COUNTRIES VISITED')):null))))),
