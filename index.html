@@ -57,6 +57,40 @@ footer{border-top:1px solid var(--line);background:#0d0912}.foot{min-height:86px
 .personal-end{border-top:1px solid var(--line);padding:27px 0 55px;color:#bdaec1;font:italic 18px var(--serif)}
 @media(max-width:640px){.story-grid{grid-template-columns:1fr}.travel-panel{padding:22px 18px}.movie-panel{padding:20px 18px}.personal-block{padding-bottom:48px}}
 
+
+/* Personal profile — hobbies, language journey, routine and aspirations */
+.personalhero{padding-bottom:72px}
+.personal-sections{padding-bottom:112px}
+.personal-intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
+.personal-feature{min-height:205px;padding:25px 26px;background:linear-gradient(145deg,rgba(40,28,49,.94),rgba(23,17,30,.96));border:1px solid var(--line);position:relative;overflow:hidden}
+.personal-feature:after{content:'';position:absolute;right:-35px;bottom:-80px;width:160px;height:160px;border:1px solid rgba(217,178,218,.12);border-radius:50%;box-shadow:0 0 0 18px rgba(217,178,218,.025),0 0 0 38px rgba(217,178,218,.018)}
+.personal-feature .story-label{margin-bottom:17px}
+.personal-feature h3{font:500 26px var(--serif);margin:0 0 10px;color:#f0e5f1;position:relative;z-index:1}
+.personal-feature p{max-width:490px;color:#afa1b3;font-size:11px;line-height:1.9;margin:0;position:relative;z-index:1}
+.personal-feature .story-tags{position:relative;z-index:1}
+.language-layout{display:grid;grid-template-columns:.82fr 1.18fr;gap:35px;align-items:start;margin-top:35px}
+.language-callout{padding:28px;border:1px solid rgba(217,178,218,.24);background:linear-gradient(145deg,rgba(74,48,78,.5),rgba(27,19,34,.85))}
+.language-callout strong{display:block;font:500 48px var(--serif);color:#e3bbd6;margin-bottom:3px}
+.language-callout span{font:9px var(--mono);letter-spacing:.16em;color:#c7a5ca}
+.language-callout p{font-size:11px;line-height:1.85;color:#b9aaba;margin:18px 0 0}
+.language-notes{border-top:1px solid var(--line)}
+.language-note{padding:16px 0;border-bottom:1px solid var(--line)}
+.language-note strong{display:block;color:#e7dce9;font-size:12px;margin-bottom:6px}
+.language-note p{margin:0;color:#a99bab;font-size:11px;line-height:1.85}
+.routine-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:36px}
+.routine-item{padding:18px 14px 20px;border:1px solid var(--line);background:rgba(33,24,39,.76);min-height:127px}
+.routine-time{color:#d7a6c4;font:10px var(--mono);letter-spacing:.04em;margin-bottom:13px}
+.routine-item strong{display:block;color:#f0e5f1;font:500 16px var(--serif);margin-bottom:5px}
+.routine-item p{font-size:10px;line-height:1.65;color:#9f91a5;margin:0}
+.routine-note{color:#887b90;font:9px var(--mono);margin-top:14px}
+.goals-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:35px}
+.goal{padding:18px 16px;border:1px solid var(--line);background:linear-gradient(140deg,rgba(38,27,45,.96),rgba(22,16,28,.95));min-height:88px;display:flex;align-items:center;gap:11px}
+.goal-no{color:#c99fbd;font:9px var(--mono)}
+.goal span:last-child{color:#e5d9e7;font-size:11px;line-height:1.5}
+.personal-closing{padding:30px 0 55px;border-top:1px solid var(--line);color:#cdbbcf;font:italic 20px var(--serif)}
+@media(max-width:900px){.language-layout{grid-template-columns:1fr;gap:18px}.routine-grid{grid-template-columns:repeat(3,1fr)}.goals-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.personal-intro-grid{grid-template-columns:1fr}.personal-feature{min-height:0}.routine-grid{grid-template-columns:repeat(2,1fr)}.goals-grid{grid-template-columns:1fr 1fr}.language-callout{padding:22px}.personal-sections{padding-bottom:72px}}
+
 @media(max-width:900px){.wrap{width:min(100% - 52px,720px)}.hero{min-height:610px;grid-template-columns:1.1fr .9fr}.art{width:360px;margin-right:-35px}.core b{font-size:49px}.introgrid,.skillgrid,.edu{grid-template-columns:1fr;gap:45px}.edutimeline{margin-left:5px}.credentials{grid-column:auto}.interestgrid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.wrap{width:calc(100% - 40px)}header{width:calc(100% - 40px);height:72px}.brand{font-size:9px;gap:9px}.brandmark{width:31px;height:31px}.menu{display:block}nav{position:absolute;top:62px;left:0;right:0;display:none;padding:18px;gap:20px;background:#1a1220;border:1px solid var(--line);align-items:flex-start;flex-direction:column}nav.open{display:flex}.hero{display:flex;flex-direction:column;align-items:flex-start;min-height:0;padding-top:67px;padding-bottom:93px}.hero h1{font-size:clamp(50px,13vw,68px);margin:25px 0 18px}.lead{font-size:13px}.actions{margin-top:26px}.meta{margin-top:37px;gap:13px;flex-direction:column}.art{width:min(340px,100%);align-self:center;margin:25px 0 0}.sticker{font-size:8px;padding:9px 11px}.scroll{bottom:30px}.band{padding:65px 0}.introgrid{gap:28px}.statement{font-size:28px}.section{padding-top:83px;padding-bottom:82px}.sectiontitle h2,.skillsintro h2{font-size:43px}.grid{grid-template-columns:1fr;gap:16px;margin-top:34px}.pvisual{height:145px}.skillgrid{gap:34px}.skillrow{grid-template-columns:39px 1fr 23px;gap:12px}.skillicon{width:36px;height:36px}.edu{row-gap:38px}.eduitem{grid-template-columns:1fr;gap:7px}.credentials{padding:20px 17px}.credrow{grid-template-columns:1fr;gap:5px}.contact{padding:75px 0}.contact h2{font-size:48px}.foot{min-height:120px;padding:20px 0;flex-wrap:wrap}.foot p{flex:1}.footlinks{order:3;width:100%;justify-content:center}.footyear{margin-left:auto}.personalhero{padding-top:80px;padding-bottom:70px}.personalhero h1{font-size:63px}.scribble{position:static;margin:35px 0 0 10px}.interests{padding-top:70px;padding-bottom:80px}.interestgrid{grid-template-columns:1fr;gap:13px}.interest{padding:17px 18px 20px}.iart{height:116px}.interest h3{font-size:22px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition-duration:.01ms!important}}
@@ -88,21 +122,54 @@ function Skills(){return h('section',{className:'skills'},h('div',{className:'wr
 function Education(){return h('section',{className:'section wrap edu',id:'education'},h('div',null,h(Eyebrow,null,'04 / LEARNING PATH'),h('div',{className:'sectiontitle'},h('h2',null,'Learning is a',h('br'),h('em',null,'long game.')),h('p',null,'Formal education, supplemented by independent exploration and project work.'))),h('div',{className:'edutimeline'},education.map(e=>h('div',{className:'eduitem',key:e[1]},h('i',{className:'edudot'}),h('div',{className:'year'},e[0]),h('div',null,h('h3',null,e[1]),h('p',null,e[2]),h('small',null,e[3]))))),h('div',{className:'credentials'},h('div',{className:'ctitle'},'✧  ADDITIONAL LEARNING'),certs.map(c=>h('div',{className:'credrow',key:c[1]},h('span',null,c[0]),h('strong',null,c[1]),h('small',null,c[2])))))}
 function Contact(){return h('section',{className:'contact'},h('div',{className:'wrap'},h(Eyebrow,null,'05 / SAY HELLO'),h('h2',null,'Good things start',h('br'),'with a ',h('em',null,'conversation.')),h('p',null,'Interested in thoughtful products, data-driven ideas or opportunities to learn and collaborate? Let’s connect.'),h('a',{className:'btn light',href:'https://github.com/sanaIITM',target:'_blank',rel:'noreferrer'},'⌘  Find me on GitHub ↗'),h('div',{className:'contactcircle'})))}
 function Professional({setPage}){return h(React.Fragment,null,h(Hero,{setPage}),h('section',{className:'band',id:'intro'},h('div',{className:'wrap introgrid'},h(Eyebrow,null,'01 / THE THROUGH-LINE'),h('div',null,h('p',{className:'statement'},'I enjoy connecting ',h('em',null,'curiosity'),' with code — moving between software engineering, data analysis and language technologies to understand problems and build useful things.'),h('p',{className:'note'},'Currently exploring the intersection of machine learning, natural language processing and practical product development.')))),h(Projects),h(Skills),h(Education),h(Contact))}
+const personalHobbies=[
+{number:'01',icon:'✈',label:'TRAVEL',title:'Travelling',body:'I enjoy discovering new places, experiencing different cultures and collecting memories. So far, I have visited seven countries.',tags:['Saudi Arabia','UAE','Bahrain','Oman','Kuwait','Qatar','Sri Lanka']},
+{number:'02',icon:'✧',label:'ON-SCREEN STORIES',title:'K-dramas & films',body:'I enjoy getting immersed in good stories, especially Korean dramas and films. A well-told story is one of my favourite ways to unwind.',tags:['K-dramas','Movies','Storytelling']},
+{number:'03',icon:'✿',label:'CREATIVITY',title:'Crafts & making',body:'I have enjoyed making things by hand since school, from Arabic calligraphy to creative crafts and decorative work.',tags:['Arabic calligraphy','Vegetable carving','Bouquet making']},
+{number:'04',icon:'文',label:'LANGUAGES',title:'Dreaming of becoming a polyglot',body:'Learning languages helps me connect with people and cultures. I can currently read and write in five languages, and I want to keep expanding that ability.',tags:['French','Arabic','Malayalam','German — future goal']}
+];
+const languageJourney=[
+['French','French was introduced to me as my third language during schooling in Saudi Arabia. I continued learning it after moving to India. My current understanding and comprehension are at a basic A1 level.'],
+['Arabic','Arabic is also currently at a basic A1 level of understanding and comprehension. I have a special interest in Arabic calligraphy.'],
+['Malayalam','I began learning Malayalam from Grade 9 onwards, after continuing my schooling in India.'],
+['Next languages','My next language goals are to become much more confident in French and to begin learning German.']
+];
+const dailyRoutine=[
+['04:00–05:00 AM','Wake up','Earliest around 4 AM; usually around 5 AM.'],
+['08:00 AM','School / work','The main work or academic day begins.'],
+['06:00 PM','Hobbies','Time for personal interests and activities.'],
+['08:00 PM','Study session','A focused evening study session.'],
+['09:00 PM','Sleep','An early night and a fresh start.']
+];
+const futurePlans=['Graduate','Travel more','Start going to the gym','Become really good at French','Learn German','Make my friends happy','Make my family happy'];
 function Personal(){return h(React.Fragment,null,
 h('section',{className:'wrap personalhero'},
-h(Eyebrow,null,'THE PERSON BEHIND THE PROJECTS'),
-h('h1',null,'A little beyond',h('br'),h('em',null,'the work.')),
-h('p',{className:'personal-lead'},'I have always enjoyed exploring different interests — from sports and crafts to travelling and films. Each stage has brought something different, and I am still discovering what I enjoy and what I want to learn next.')),
-h('section',{className:'wrap personal-block'},
-h(Eyebrow,null,'01 / PLACES AND EXPERIENCES'),
-h('h2',{className:'personal-heading'},'Curiosity has taken me places.'),
-h('div',{className:'travel-panel'},
-h('div',{className:'travel-count'},h('strong',null,'07'),h('span',null,'COUNTRIES VISITED SO FAR')),
-h('div',{className:'country-list'},['Saudi Arabia','United Arab Emirates','Bahrain','Oman','Kuwait','Qatar','Sri Lanka'].map(x=>h('span',{className:'country-chip',key:x},x))))),
-h('section',{className:'wrap personal-block'},
-h(Eyebrow,null,'02 / DIFFERENT CHAPTERS'),
-h('h2',{className:'personal-heading'},'A few things that shaped me.'),
-h('p',{className:'personal-sub'},'My interests have changed over the years, but creativity, curiosity and trying something new have stayed with me.'),
+h(Eyebrow,null,'A LITTLE MORE ABOUT ME'),
+h('h1',null,'Life beyond',h('br'),h('em',null,'the classroom.')),
+h('p',{className:'personal-lead'},'I am someone who enjoys exploring new places, stories, languages and creative interests. My interests have changed through different stages of life, and I like having goals that give me something new to look forward to.')),
+h('section',{className:'wrap personal-sections'},
+h(Eyebrow,null,'01 / THINGS I ENJOY'),
+h('h2',{className:'personal-heading'},'A few of my favourite things.'),
+h('p',{className:'personal-sub'},'Travel, K-dramas, crafts and languages are some of the things I make time for outside academics.'),
+h('div',{className:'personal-intro-grid'},personalHobbies.map(item=>h('article',{className:'personal-feature',key:item.number},
+h('div',{className:'story-label'},item.number+' / '+item.label+' '+item.icon),
+h('h3',null,item.title),
+h('p',null,item.body),
+h('div',{className:'story-tags'},item.tags.map(tag=>h('span',{key:tag},tag))))))),
+h('section',{className:'wrap personal-sections'},
+h(Eyebrow,null,'02 / MY LANGUAGE JOURNEY'),
+h('h2',{className:'personal-heading'},'A dream of becoming a polyglot.'),
+h('div',{className:'language-layout'},
+h('div',{className:'language-callout'},
+h('strong',null,'05'),
+h('span',null,'LANGUAGES I CAN READ AND WRITE'),
+h('p',null,'French and Arabic are currently at a basic A1 level of understanding and comprehension. I hope to become more fluent and confident with continued learning.')),
+h('div',{className:'language-notes'},languageJourney.map(item=>h('div',{className:'language-note',key:item[0]},
+h('strong',null,item[0]),h('p',null,item[1])))))),
+h('section',{className:'wrap personal-sections'},
+h(Eyebrow,null,'03 / THE DIFFERENT CHAPTERS'),
+h('h2',{className:'personal-heading'},'Interests that grew with me.'),
+h('p',{className:'personal-sub'},'From school activities to a broader academic journey, each chapter has added something to who I am.'),
 h('div',{className:'story-grid'},
 h('article',{className:'story-card'},
 h('div',{className:'story-label'},'MIDDLE SCHOOL · SPORTS'),
@@ -111,23 +178,35 @@ h('p',null,'I was part of the school teams for tug of war, kho-kho and volleybal
 h('div',{className:'story-tags'},['Tug of war','Kho-kho','Volleyball','Shot put','Long jump'].map(x=>h('span',{key:x},x)))),
 h('article',{className:'story-card'},
 h('div',{className:'story-label'},'SCHOOL · CREATIVE PURSUITS'),
-h('h3',null,'Making things by hand'),
-h('p',null,'Crafts became a bigger part of my school life. I was recognised as a state-level winner in Arabic calligraphy. In high school, I also won in creative competitions such as vegetable carving and bouquet making.'),
+h('h3',null,'Creativity through crafts'),
+h('p',null,'In school, I became more interested in crafts and creative competitions. I was a state-level winner in Arabic calligraphy and also won in high-school events such as vegetable carving and bouquet making.'),
 h('div',{className:'calligraphy'},'State-level winner · Arabic Calligraphy'),
 h('div',{className:'story-tags'},['Arabic calligraphy','Vegetable carving','Bouquet making'].map(x=>h('span',{key:x},x)))),
 h('article',{className:'story-card'},
 h('div',{className:'story-label'},'COLLEGE · PRESENT DAY'),
 h('h3',null,'Learning in more than one direction'),
-h('p',null,'College has been a time of balancing my B.Tech in Computer Science and Engineering with the IIT Madras BS in Data Science and Applications. Along the way, I have been focusing on data, building technical depth and developing the life skills that matter beyond academics.'),
-h('div',{className:'story-tags'},['Computer Science','Data Science','Life skills','Continuous learning'].map(x=>h('span',{key:x},x)))),
-h('article',{className:'story-card'},
-h('div',{className:'story-label'},'A LITTLE OFF-SCREEN'),
-h('h3',null,'Stories I enjoy'),
-h('p',null,'Films are one of my favourite ways to unwind and spend time with a good story.'),
-h('div',{className:'movie-panel'},
+h('p',null,'College has been a time of balancing my B.Tech in Computer Science and Engineering with the IIT Madras BS in Data Science and Applications. I have focused on learning more about data, building technical depth and developing life skills alongside academics.'),
+h('div',{className:'story-tags'},['Computer Science','Data Science','Life skills','Continuous learning'].map(x=>h('span',{key:x})))))),
+h('section',{className:'wrap personal-sections'},
+h(Eyebrow,null,'04 / A TYPICAL DAY'),
+h('h2',{className:'personal-heading'},'A rhythm that works for me.'),
+h('p',{className:'personal-sub'},'My usual routine balances the day’s responsibilities with time for hobbies and a quiet evening study session.'),
+h('div',{className:'routine-grid'},dailyRoutine.map((item,i)=>h('article',{className:'routine-item',key:item[0]},
+h('div',{className:'routine-time'},item[0]),
+h('strong',null,item[1]),
+h('p',null,item[2])))),
+h('p',{className:'routine-note'},'* Usual timings; wake-up time can be as early as 4:00 AM.')),
+h('section',{className:'wrap personal-sections'},
+h(Eyebrow,null,'05 / LOOKING AHEAD'),
+h('h2',{className:'personal-heading'},'Things I hope to do.'),
+h('p',{className:'personal-sub'},'A mix of personal milestones, new experiences and the people who matter most.'),
+h('div',{className:'goals-grid'},futurePlans.map((item,i)=>h('div',{className:'goal',key:item},
+h('span',{className:'goal-no'},String(i+1).padStart(2,'0')),
+h('span',null,item)))),
+h('div',{className:'movie-panel',style:{marginTop:'30px'}},
 h('div',{className:'movie-mark'},'✧'),
-h('div',null,h('small',null,'LAST MOVIE WATCHED'),h('strong',null,'Sense and Sensibility'),h('p',null,'2026')))))),
-h('div',{className:'wrap personal-end'},'Still collecting places, stories and skills — one experience at a time.')
+h('div',null,h('small',null,'LAST MOVIE WATCHED'),h('strong',null,'Sense and Sensibility'),h('p',null,'2026')))),
+h('div',{className:'wrap personal-closing'},'Always learning, collecting memories and making room for what comes next.')
 )}
 function Footer({page,setPage}){const choose=x=>{setPage(x);window.scrollTo({top:0,behavior:'smooth'})};return h('footer',null,h('div',{className:'wrap foot'},h('a',{className:'footmark',href:'#top',onClick:()=>choose('professional')},'s.'),h('p',null,'Made with curiosity by Sana Bint Salim.'),h('div',{className:'footlinks'},h('button',{className:page==='professional'?'active':'',onClick:()=>choose('professional')},'Professional'),h('button',{className:page==='personal'?'active':'',onClick:()=>choose('personal')},'Personal'),h('a',{href:'https://github.com/sanaIITM',target:'_blank',rel:'noreferrer'},'GitHub ↗')),h('span',{className:'footyear'},'© 2026')))}
 function App(){const[page,setPage]=useState('professional');return h(React.Fragment,null,h(Header,{page,setPage}),page==='professional'?h(Professional,{setPage}):h('main',null,h(Personal)),h(Footer,{page,setPage}))}
