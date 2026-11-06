@@ -554,6 +554,71 @@ footer{border-top:1px solid var(--line);background:#0d0912}.foot{min-height:86px
  70%{transform:translate(-50%,-50%) scale(5.4);opacity:.28}
  100%{transform:translate(-50%,-50%) scale(6);opacity:0}
 }
+
+/* Keepsake box and Easter-egg cat garden */
+.cat-keepsake-section{padding-top:84px;padding-bottom:88px}
+.cat-keepsake-heading{text-align:center;max-width:620px;margin:0 auto 30px}
+.cat-keepsake-heading h2{font:500 clamp(30px,3.5vw,43px)/1.12 var(--serif);color:#f1e5f1;margin:13px 0}
+.cat-keepsake-heading p{font-size:11px;line-height:1.8;color:#a99bab;margin:0}
+.cat-keepsake{display:block;position:relative;width:min(710px,100%);height:255px;margin:0 auto;padding:0;border:0;background:transparent;cursor:pointer;filter:drop-shadow(0 26px 35px rgba(0,0,0,.42));transition:transform .35s ease}
+.cat-keepsake:hover{transform:translateY(-5px)}
+.keepsake-front{position:absolute;left:5%;right:5%;bottom:7px;height:150px;border:1px solid #a98a6d;border-radius:8px 8px 18px 18px;background:linear-gradient(145deg,#473047 0%,#2c1e31 48%,#19362d 100%);box-shadow:inset 0 0 0 7px rgba(213,176,142,.11),inset 0 -18px 36px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;overflow:hidden}
+.keepsake-front:before{content:'';position:absolute;inset:12px;border:1px solid rgba(226,198,157,.55);border-radius:4px}
+.keepsake-front:after{content:'✿  ❧  ✿';position:absolute;bottom:17px;color:rgba(228,193,157,.5);font:18px var(--serif);letter-spacing:22px}
+.keepsake-front-top{position:relative;z-index:1;color:#d6b6ca;font:8px var(--mono);letter-spacing:.22em}
+.keepsake-title{position:relative;z-index:1;color:#f5e9f2;font:500 clamp(24px,3vw,34px) var(--serif)}
+.keepsake-subtitle{position:relative;z-index:1;color:#c9afc5;font:italic 12px var(--serif)}
+.keepsake-lock{position:absolute;right:50%;bottom:13px;transform:translateX(50%);z-index:2;color:#e8c990;font-size:22px;text-shadow:0 0 18px #edcc93}
+.keepsake-lid{position:absolute;z-index:2;left:4%;right:4%;top:10px;height:95px;border:1px solid #cfb08a;border-radius:11px 11px 5px 5px;background:linear-gradient(135deg,#65455e,#3c2a46 48%,#31513e);box-shadow:inset 0 0 0 7px rgba(235,205,162,.11),0 9px 12px rgba(0,0,0,.3);transform-origin:bottom;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.keepsake-lid-line{position:absolute;inset:11px;border:1px solid rgba(239,212,175,.52);border-radius:4px}
+.keepsake-lid-flower{position:absolute;inset:0;display:grid;place-items:center;color:#edcfa0;font-size:28px;text-shadow:0 0 16px rgba(246,213,161,.5)}
+.cat-keepsake:hover .keepsake-lid{transform:rotateX(16deg) translateY(-5px)}
+.keepsake-vine{position:absolute;z-index:3;top:90px;color:#d7b58e;font:40px var(--serif);opacity:.8}
+.keepsake-vine-left{left:8%;transform:rotate(-25deg)}
+.keepsake-vine-right{right:8%;transform:scaleX(-1) rotate(-25deg)}
+.keepsake-side-label{display:block;position:absolute;bottom:-20px;left:0;right:0;color:#b99db7;font:9px var(--mono);letter-spacing:.18em;text-align:center}
+.cat-garden-screen{position:fixed;inset:0;z-index:18000;overflow:auto;background:radial-gradient(ellipse at 50% 0%,#425b50 0%,#172c25 42%,#0b1716 100%);color:#f2e8df;padding:25px clamp(16px,4vw,58px) 35px;animation:gardenAppear .6s cubic-bezier(.2,.8,.2,1) both;isolation:isolate}
+@keyframes gardenAppear{from{opacity:0;transform:scale(1.025);filter:blur(8px)}to{opacity:1;transform:scale(1);filter:blur(0)}}
+.garden-sky-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(circle at 84% 17%,rgba(219,189,152,.12),transparent 24%),radial-gradient(circle at 13% 80%,rgba(104,157,127,.16),transparent 30%)}
+.garden-fireflies{position:fixed;inset:0;pointer-events:none;z-index:1}
+.garden-fireflies i{position:absolute;width:3px;height:3px;border-radius:50%;background:#e9d99f;box-shadow:0 0 10px 3px rgba(232,218,151,.5);animation:fireflyFloat 4.8s ease-in-out infinite alternate}
+@keyframes fireflyFloat{0%{opacity:.1;transform:translate3d(0,0,0)}55%{opacity:.95}100%{opacity:.25;transform:translate3d(12px,-20px,0)}}
+.garden-header{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:18px;max-width:1240px;margin:0 auto}
+.garden-header small{font:9px var(--mono);letter-spacing:.2em;color:#dfc49c}
+.garden-header h2{font:500 clamp(28px,3.5vw,43px) var(--serif);margin:5px 0 0;color:#f5eadf}
+.garden-header-right{display:flex;align-items:center;gap:16px}
+.garden-found-count{font:9px var(--mono);letter-spacing:.12em;color:#d7c2a3}
+.garden-close{width:40px;height:40px;border-radius:50%;border:1px solid rgba(235,219,198,.38);background:rgba(13,28,23,.6);color:#f6eadb;font-size:23px;line-height:1;cursor:pointer;display:grid;place-items:center;transition:background .2s,transform .2s}
+.garden-close:hover{background:rgba(223,193,144,.22);transform:rotate(90deg)}
+.garden-invitation{max-width:1240px;margin:17px auto 20px;color:#b7c7b6;font:italic 14px var(--serif)}
+.garden-world{position:relative;max-width:1240px;margin:0 auto;min-height:clamp(440px,65vh,690px);border:1px solid rgba(200,184,148,.3);border-radius:22px;overflow:hidden;background:radial-gradient(ellipse at 45% 44%,rgba(73,111,78,.28),transparent 58%),linear-gradient(145deg,#183528,#0f211c 72%);box-shadow:0 24px 70px rgba(0,0,0,.32),inset 0 0 90px rgba(7,17,14,.6)}
+.garden-maze{position:absolute;inset:2% 1% 5%;width:98%;height:93%;display:block;filter:drop-shadow(0 18px 24px rgba(0,0,0,.28))}
+.garden-egg-layer{position:absolute;inset:0;z-index:3}
+.garden-egg{position:absolute;width:42px;height:42px;border-radius:50%;transform:translate(-50%,-50%);border:1px solid rgba(242,218,154,.6);background:radial-gradient(circle,rgba(243,220,157,.25),rgba(13,32,24,.8) 70%);color:#f3d99b;cursor:pointer;display:grid;place-items:center;box-shadow:0 0 0 5px rgba(231,208,147,.04),0 0 22px rgba(225,205,142,.22);transition:transform .25s,background .25s,box-shadow .25s}
+.garden-egg:hover{transform:translate(-50%,-50%) scale(1.2);background:rgba(206,172,114,.35);box-shadow:0 0 0 9px rgba(231,208,147,.08),0 0 34px rgba(225,205,142,.45)}
+.garden-egg.found{background:radial-gradient(circle,#e6c58e,#91764f);color:#203328;border-color:#f3deb5}
+.garden-egg-glow{position:absolute;inset:-7px;border:1px solid rgba(246,225,172,.2);border-radius:50%;animation:eggPulse 2.4s ease-in-out infinite}
+@keyframes eggPulse{0%,100%{transform:scale(.82);opacity:.15}50%{transform:scale(1.25);opacity:.9}}
+.garden-egg-mark{font-size:17px;position:relative;z-index:1}
+.garden-footnote{position:absolute;bottom:13px;left:0;right:0;text-align:center;color:#b4c0a9;font:italic 13px var(--serif);letter-spacing:.04em}
+.garden-fireflies{position:fixed;inset:0;pointer-events:none;z-index:1}
+.cat-discovery{position:fixed;z-index:5;right:clamp(14px,4vw,55px);bottom:clamp(14px,4vh,38px);width:min(320px,calc(100vw - 28px));padding:12px;background:linear-gradient(145deg,#34253a,#1d3027);border:1px solid rgba(227,199,160,.56);border-radius:16px;box-shadow:0 22px 55px rgba(0,0,0,.52);animation:discoveryPop .4s cubic-bezier(.2,.8,.2,1) both}
+@keyframes discoveryPop{from{opacity:0;transform:translateY(18px) scale(.94)}to{opacity:1;transform:translateY(0) scale(1)}}
+.cat-discovery-photo{width:100%;aspect-ratio:1/1;border-radius:9px;border:1px solid rgba(239,214,174,.28);background-repeat:no-repeat;box-shadow:inset 0 0 32px rgba(0,0,0,.1)}
+.cat-discovery-caption{padding:13px 6px 5px}
+.cat-discovery-caption small{font:8px var(--mono);letter-spacing:.18em;color:#e1c18f}
+.cat-discovery-caption h3{font:500 23px var(--serif);color:#f6e9dc;margin:5px 0}
+.cat-discovery-caption p{font-size:10px;line-height:1.6;color:#c3c7b7;margin:0}
+.discovery-close{position:absolute;top:18px;right:18px;z-index:2;background:rgba(13,24,19,.82)}
+.garden-footer{text-align:center;margin:18px auto 0;color:#809787;font:8px var(--mono);letter-spacing:.2em}
+@media(max-width:700px){
+ .cat-keepsake-section{padding-top:65px;padding-bottom:70px}.cat-keepsake{height:220px}.keepsake-front{height:132px}.keepsake-lid{height:82px}.keepsake-vine{font-size:29px}
+ .cat-garden-screen{padding:18px 12px 28px}.garden-header h2{font-size:29px}.garden-invitation{font-size:12px;margin-bottom:14px}
+ .garden-world{min-height:66vh;border-radius:14px}.garden-maze{inset:7% 1% 9%;height:84%}.garden-egg{width:34px;height:34px}
+ .garden-footnote{font-size:11px;padding:0 12px}.cat-discovery{width:min(270px,calc(100vw - 28px));right:14px;bottom:14px}
+}
+@media(prefers-reduced-motion:reduce){.cat-garden-screen,.garden-fireflies i,.garden-egg-glow,.cat-discovery{animation:none!important}}
+
 @media(prefers-reduced-motion:reduce){
  .page-ripple:before,.page-ripple:after{animation-duration:.01ms;opacity:0}
 }
@@ -730,6 +795,69 @@ h('p',{className:'story-dialog-body'},story.body),
 story.title==='A world of words'?h('div',{className:'story-dialog-languages'},langs.map(x=>h('div',{className:'story-dialog-language',key:x[0]},h('strong',null,x[0]),h('span',null,x[1])))):null,
 ));
 }
+function CatGarden(){
+const [open,setOpen]=useState(false);
+const [found,setFound]=useState([]);
+const [active,setActive]=useState(null);
+const cats=[
+{id:'pair',title:'The lounging pair',note:'Two companions, perfectly at home.',pos:'0% 0%',left:'12%',top:'27%'},
+{id:'kittens',title:'The tiny explorers',note:'A curious little crew on the move.',pos:'100% 0%',left:'44%',top:'14%'},
+{id:'closeup',title:'The curious face',note:'A close-up that deserves its own portrait.',pos:'0% 100%',left:'74%',top:'49%'},
+{id:'orange',title:'The little lookout',note:'A warm patch of orange in the garden.',pos:'100% 100%',left:'84%',top:'82%'}
+];
+const discover=cat=>{
+ setFound(current=>current.includes(cat.id)?current:[...current,cat.id]);
+ setActive(cat.id);
+};
+const selected=cats.find(x=>x.id===active);
+React.useEffect(()=>{
+ if(!open)return;
+ const onKey=e=>{if(e.key==='Escape'){if(active)setActive(null);else setOpen(false)}};
+ window.addEventListener('keydown',onKey);
+ return()=>window.removeEventListener('keydown',onKey);
+},[open,active]);
+return h(React.Fragment,null,
+h('section',{className:'wrap personal-section cat-keepsake-section reveal'},
+h('div',{className:'cat-keepsake-heading'},
+h(Eyebrow,null,'A LITTLE WORLD OF PAWS'),
+h('h2',null,'A secret garden, just for you.'),
+h('p',null,'There’s a little world tucked away inside this box.')),
+h('button',{type:'button',className:'cat-keepsake',onClick:()=>{setOpen(true);setActive(null)}},
+h('span',{className:'keepsake-vine keepsake-vine-left'},'❧'),
+h('span',{className:'keepsake-vine keepsake-vine-right'},'❧'),
+h('span',{className:'keepsake-lid'},h('span',{className:'keepsake-lid-line'}),h('span',{className:'keepsake-lid-flower'},'✿')),
+h('span',{className:'keepsake-front'},
+h('span',{className:'keepsake-front-top'},'A SMALL COLLECTION OF FAVOURITE THINGS'),
+h('span',{className:'keepsake-title'},'The Secret Garden'),
+h('span',{className:'keepsake-subtitle'},'four little faces are hiding inside'),
+h('span',{className:'keepsake-lock'},'✧')),
+h('span',{className:'keepsake-side-label'},'OPEN THE BOX ↗'))),
+open?h('div',{className:'cat-garden-screen',role:'dialog','aria-modal':'true','aria-label':'The Secret Garden'},
+h('div',{className:'garden-sky-glow'}),
+h('div',{className:'garden-fireflies'},Array.from({length:14},(_,i)=>h('i',{key:i,style:{left:((i*47+13)%97)+'%',top:((i*31+7)%83)+'%',animationDelay:((i%7)*.37)+'s'}}))),
+h('header',{className:'garden-header'},
+h('div',null,h('small',null,'A PLACE TO WANDER'),h('h2',null,'The Secret Garden')),
+h('div',{className:'garden-header-right'},h('span',{className:'garden-found-count'},found.length+' / 4 found'),h('button',{type:'button',className:'garden-close','aria-label':'Close garden',onClick:()=>{setOpen(false);setActive(null)}},'×'))),
+h('div',{className:'garden-invitation'},'Follow the winding paths. Look closely — little paws are easy to miss.'),
+h('main',{className:'garden-world'},
+h('svg',{className:'garden-maze',viewBox:'0 0 1000 650',preserveAspectRatio:'xMidYMid meet','aria-hidden':'true'},
+h('rect',{x:'12',y:'12',width:'976',height:'626',rx:'28',fill:'#10251e',stroke:'#b7a27c',strokeOpacity:'.5',strokeWidth:'2'}),
+h('path',{d:'M70 90 H300 V205 H170 V350 H380 V515 H200 M300 205 H450 V95 H610 V220 H495 V350 H650 V270 H820 V125 H925 M380 515 H545 V420 H735 V540 H920 M650 270 V95 H750 M735 540 V370 H880 V470',stroke:'#17372a',strokeWidth:'92',strokeLinecap:'round',strokeLinejoin:'round',fill:'none'}),
+h('path',{d:'M70 90 H300 V205 H170 V350 H380 V515 H200 M300 205 H450 V95 H610 V220 H495 V350 H650 V270 H820 V125 H925 M380 515 H545 V420 H735 V540 H920 M650 270 V95 H750 M735 540 V370 H880 V470',stroke:'#426d4b',strokeWidth:'68',strokeLinecap:'round',strokeLinejoin:'round',fill:'none'}),
+h('path',{d:'M70 90 H300 V205 H170 V350 H380 V515 H200 M300 205 H450 V95 H610 V220 H495 V350 H650 V270 H820 V125 H925 M380 515 H545 V420 H735 V540 H920 M650 270 V95 H750 M735 540 V370 H880 V470',stroke:'#c1a77d',strokeOpacity:'.86',strokeWidth:'27',strokeLinecap:'round',strokeLinejoin:'round',fill:'none'}),
+h('path',{d:'M70 90 H300 V205 H170 V350 H380 V515 H200 M300 205 H450 V95 H610 V220 H495 V350 H650 V270 H820 V125 H925 M380 515 H545 V420 H735 V540 H920 M650 270 V95 H750 M735 540 V370 H880 V470',stroke:'#e1cba7',strokeOpacity:'.22',strokeWidth:'2',strokeDasharray:'3 14',strokeLinecap:'round',fill:'none'}),
+h('g',{fill:'#e4bed1',opacity:'.9'},h('circle',{cx:'110',cy:'255',r:'5'}),h('circle',{cx:'125',cy:'270',r:'3'}),h('circle',{cx:'138',cy:'250',r:'4'}),h('circle',{cx:'840',cy:'330',r:'4'}),h('circle',{cx:'855',cy:'345',r:'5'}),h('circle',{cx:'870',cy:'325',r:'3'})),
+h('g',{fill:'#e7d29a',opacity:'.85'},h('circle',{cx:'550',cy:'160',r:'4'}),h('circle',{cx:'565',cy:'173',r:'3'}),h('circle',{cx:'580',cy:'158',r:'4'}),h('circle',{cx:'250',cy:'555',r:'3'}),h('circle',{cx:'265',cy:'568',r:'4'}))),
+h('div',{className:'garden-egg-layer'},cats.map(cat=>h('button',{type:'button',key:cat.id,className:'garden-egg'+(found.includes(cat.id)?' found':''),'aria-label':found.includes(cat.id)?'Cat discovered':'Search this garden spot',onClick:()=>discover(cat),style:{left:cat.left,top:cat.top}},
+h('span',{className:'garden-egg-glow'}),h('span',{className:'garden-egg-mark'},found.includes(cat.id)?'♥':'✧')))),
+h('div',{className:'garden-footnote'},found.length===4?'Every little face has been found. The garden is yours.':'Listen for a rustle. Follow a glimmer.')),
+selected?h('aside',{className:'cat-discovery'},
+h('button',{type:'button',className:'garden-close discovery-close','aria-label':'Close discovery',onClick:()=>setActive(null)},'×'),
+h('div',{className:'cat-discovery-photo',style:{backgroundImage:"url('/images/cat-garden-atlas.webp')",backgroundSize:'200% 200%',backgroundPosition:selected.pos}}),
+h('div',{className:'cat-discovery-caption'},h('small',null,'A LITTLE DISCOVERY'),h('h3',null,selected.title),h('p',null,selected.note))):null,
+h('footer',{className:'garden-footer'},'TAKE YOUR TIME · THERE IS NO WRONG WAY THROUGH THE MAZE')):null
+);
+}
 function Personal({onOpenStory}){
 const [expanded,setExpanded]=useState(null);
 const showStory=onOpenStory;
@@ -755,16 +883,7 @@ h('button',{type:'button',className:'click-card',onClick:()=>onOpenStory(item.ti
 h('img',{src:item.image,alt:item.alt,loading:'lazy'}),
 h('div',{className:'interest-copy'},h('h3',null,item.title))),
 expanded==='hobby-'+item.n?h('div',{className:'inline-detail'},hobbyStories[item.n]):null))),
-h('section',{className:'wrap personal-section reveal'},
-h('div',{className:'cat-love'},
-h('div',{className:'cat-love-head'},
-h('div',null,h(Eyebrow,null,'02 / MY CAMERA ROLL'),h('h3',null,'I love cats like crazy.')),
-h('p',null,'A few of the little faces that make my camera roll.')),
-h('div',{className:'cat-grid'},catPhotos.map((photo,i)=>h('article',{className:'cat-gallery-item'+(expanded==='cat-'+i?' is-open':''),key:photo.src},
-h('button',{type:'button',className:'cat-photo',onClick:()=>onOpenStory(photo.title,'FROM MY CAT PHOTO COLLECTION',photo.detail)},
-h('img',{src:photo.src,alt:photo.alt,loading:'lazy'}),h('span',null,photo.title)),
-expanded==='cat-'+i?h('div',{className:'inline-detail'},photo.detail):null))),
-h('div',{className:'cat-tagline'},'No such thing as too many cat photos.'))),
+h(CatGarden,null),
 h('section',{className:'wrap personal-section reveal',id:'life-chapters'},
 h('div',{className:'personal-section-head life-section-head'},
 h('div',null,h(Eyebrow,null,'03 / LIFE IN CHAPTERS'),h('h2',{className:'personal-heading'},'Different seasons, different stories.')),
