@@ -559,6 +559,13 @@ footer{border-top:1px solid var(--line);background:#0d0912}.foot{min-height:86px
 }
 
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}.personal-marquee-track{animation:none}.reveal{opacity:1;transform:none}}
+
+/* Personal hero: centred introduction, no floating photo collage */
+.personalhero-new{display:flex!important;justify-content:center;align-items:center;min-height:clamp(430px,62vh,620px);padding-top:84px;padding-bottom:84px}
+.personalhero-new .personal-hero-copy{width:min(800px,100%);margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center}
+.personalhero-new .personal-hero-copy .personal-lead{max-width:690px!important;margin-left:auto;margin-right:auto}
+.personalhero-new h1{margin-left:auto;margin-right:auto}
+@media(max-width:640px){.personalhero-new{min-height:390px;padding-top:62px;padding-bottom:62px}.personalhero-new .personal-hero-copy{width:100%}.personalhero-new h1{font-size:clamp(46px,12vw,64px)}}
 </style>
 </head>
 <body><div id="root"></div>
@@ -738,12 +745,7 @@ h('section',{className:'wrap personalhero personalhero-new'},
 h('div',{className:'personal-hero-copy reveal'},
 h(Eyebrow,null,'THE PERSON BEHIND THE PROJECTS'),
 h('h1',null,'Hello again.',h('br'),'I’m ',h('em',null,'Sana.')),
-h('p',{className:'personal-lead'},'A curious mind with a passport, a craft box, a soft spot for cats and a language list full of plans. I enjoy exploring new places, getting immersed in stories, making things and finding new ways to learn.')),
-h('div',{className:'personal-hero-art reveal'},
-h('div',{className:'personal-hero-photo main'},h('img',{src:'/images/cat-pair.webp',alt:'Two of my cats resting together',loading:'eager'})),
-h('div',{className:'personal-hero-photo small'},h('img',{src:'/images/cat-kittens.webp',alt:'A group of kittens',loading:'lazy'})),
-h('div',{className:'personal-hero-photo detail'},h('img',{src:'/images/cat-closeup.webp',alt:'Close-up of one of my cats',loading:'lazy'})),
-h('div',{className:'photo-stamp'},h('strong',null,'♡'),'CAT PERSON'))),
+h('p',{className:'personal-lead'},'A curious mind with a passport, a craft box, a soft spot for cats and a language list full of plans. I enjoy exploring new places, getting immersed in stories, making things and finding new ways to learn.'))),
 h('div',{className:'personal-marquee','aria-label':'Travel, stories, crafts, cats and language learning'},
 h('div',{className:'personal-marquee-track'},[0,1].map(i=>h(React.Fragment,{key:i},['TRAVEL','K-DRAMAS','CRAFTS','CATS','LANGUAGES','LITTLE BIG PLANS'].map(x=>h(React.Fragment,{key:x+i},h('span',null,x),h('b',null,'✳'))))))),
 h('section',{className:'wrap personal-section reveal'},
