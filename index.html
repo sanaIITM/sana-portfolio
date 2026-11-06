@@ -816,7 +816,7 @@ const switchPage=target=>{
  if(target===page||transitioning)return;
  setTransitioning(true);
  window.setTimeout(()=>{setPage(target);window.scrollTo({top:0,behavior:'instant'})},600);
- window.setTimeout(()=>setTransitioning(false),800);
+ window.setTimeout(()=>setTransitioning(false),1200);
 };
 React.useEffect(()=>{
  if(page!=='personal')return;
