@@ -632,7 +632,7 @@ footer{border-top:1px solid var(--line);background:#0d0912}.foot{min-height:86px
 .personalhero-new h1{margin-left:auto;margin-right:auto}
 @media(max-width:640px){.personalhero-new{min-height:390px;padding-top:62px;padding-bottom:62px}.personalhero-new .personal-hero-copy{width:100%}.personalhero-new h1{font-size:clamp(46px,12vw,64px)}}
 
-.contact-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:850px;position:relative;z-index:1;margin-top:38px}
+.contact-links{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;max-width:1050px;position:relative;z-index:1;margin-top:38px}
 .contact-link{min-height:112px;padding:17px 16px;display:flex;align-items:flex-start;gap:12px;border:1px solid rgba(224,178,214,.2);background:rgba(255,255,255,.025);transition:transform .22s,border-color .22s,background .22s}
 .contact-link:hover{transform:translateY(-4px);border-color:rgba(224,178,214,.52);background:rgba(255,255,255,.055)}
 .contact-symbol{width:32px;height:32px;flex:0 0 32px;display:grid;place-items:center;border-radius:50%;border:1px solid rgba(210,167,213,.25);color:#e2b8d5;font-size:16px}
@@ -670,7 +670,8 @@ function Education(){return h('section',{className:'section wrap edu',id:'educat
 function Contact(){return h('section',{className:'contact'},h('div',{className:'wrap'},h(Eyebrow,null,'05 / SAY HELLO'),h('h2',null,'Good things start',h('br'),'with a ',h('em',null,'conversation.')),h('p',null,'Interested in thoughtful products, data-driven ideas or opportunities to learn and collaborate? Let’s connect.'),h('div',{className:'contact-links'},
 h('a',{className:'contact-link',href:'https://github.com/sanaIITM',target:'_blank',rel:'noreferrer'},h('span',{className:'contact-symbol'},'⌘'),h('span',{className:'contact-link-copy'},h('small',null,'CODE & PROJECTS'),h('strong',null,'GitHub'),h('em',null,'Explore my repositories ↗'))),
 h('a',{className:'contact-link',href:'https://www.instagram.com/sanabintsalim/',target:'_blank',rel:'noreferrer'},h('span',{className:'contact-symbol'},'◎'),h('span',{className:'contact-link-copy'},h('small',null,'LITTLE MOMENTS'),h('strong',null,'Instagram'),h('em',null,'@sanabintsalim ↗'))),
-h('a',{className:'contact-link',href:'mailto:sanabintsalim@gmail.com'},h('span',{className:'contact-symbol'},'✉'),h('span',{className:'contact-link-copy'},h('small',null,'SAY HELLO'),h('strong',null,'Email'),h('em',null,'sanabintsalim@gmail.com ↗')))
+h('a',{className:'contact-link',href:'mailto:sanabintsalim@gmail.com'},h('span',{className:'contact-symbol'},'✉'),h('span',{className:'contact-link-copy'},h('small',null,'SAY HELLO'),h('strong',null,'Email'),h('em',null,'sanabintsalim@gmail.com ↗'))),
+h('a',{className:'contact-link',href:'https://www.linkedin.com/in/sana-salim/',target:'_blank',rel:'noreferrer'},h('span',{className:'contact-symbol'},'in'),h('span',{className:'contact-link-copy'},h('small',null,'PROFESSIONAL NETWORK'),h('strong',null,'LinkedIn'),h('em',null,'Connect with me ↗')))
 ),h('div',{className:'contactcircle'})))}
 function Professional({setPage}){return h(React.Fragment,null,h(Hero,{setPage}),h('section',{className:'band',id:'intro'},h('div',{className:'wrap introgrid'},h(Eyebrow,null,'01 / THE THROUGH-LINE'),h('div',null,h('p',{className:'statement'},'I enjoy connecting ',h('em',null,'curiosity'),' with code — moving between software engineering, data analysis and language technologies to understand problems and build useful things.'),h('p',{className:'note'},'Currently exploring the intersection of machine learning, natural language processing and practical product development.')))),h(Projects),h(Skills),h(Education),h(Contact))}
 const personalHobbies=[
