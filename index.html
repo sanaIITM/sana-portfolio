@@ -728,7 +728,7 @@ h('small',{className:'story-dialog-kicker'},story.kicker),
 h('h3',{id:'story-title'},story.title),
 h('p',{className:'story-dialog-body'},story.body),
 story.title==='A world of words'?h('div',{className:'story-dialog-languages'},langs.map(x=>h('div',{className:'story-dialog-language',key:x[0]},h('strong',null,x[0]),h('span',null,x[1])))):null,
-h('div',{className:'story-dialog-actions'},h('span',{className:'story-dialog-progress'},'PERSONAL NOTES'),h('button',{onClick:onClose},'Close'))));
+));
 }
 function Personal({onOpenStory}){
 const [expanded,setExpanded]=useState(null);
