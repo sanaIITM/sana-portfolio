@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "scripts": { "dev": "node dev.mjs", "build": "node build.mjs", "preview": "node preview.mjs" },
+  "scripts": { "build": "node build.mjs" },
   "dependencies": {},
   "devDependencies": {}
 }
