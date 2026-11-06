@@ -293,7 +293,7 @@ const dailyRoutine=[
 ['09:00 PM','Sleep','An early night and a fresh start.']
 ];
 const futurePlans=['Graduate','Travel more','Start going to the gym','Become really good at French','Learn German','Make my friends happy','Make my family happy'];
-const personalHobbies=[
+const interestFeatures=[
 {n:'01',type:'TRAVEL & EXPLORATION',title:'A passport full of memories',text:'Seven countries so far, and still a long list of places I hope to see. I love the feeling of discovering somewhere new.',tags:['Saudi Arabia','UAE','Bahrain','Oman','Kuwait','Qatar','Sri Lanka'],image:'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=85',alt:'A scenic mountain lake at golden hour',style:'travel'},
 {n:'02',type:'K-DRAMAS & FILMS',title:'One more episode?',text:'I enjoy getting lost in a good story — especially Korean dramas, along with films that stay with me after the credits.',tags:['K-dramas','Movies','Storytelling'],image:'https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=1000&q=85',alt:'A cinematic movie theatre',style:'small'},
 {n:'03',type:'CRAFTS & MAKING',title:'A creative side',text:'From calligraphy to handmade details, I enjoy the patience and imagination that go into making something by hand.',tags:['Arabic calligraphy','Bouquet making','Crafts'],image:'https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1000&q=85',alt:'Soft floral arrangement',style:'small'},
@@ -320,9 +320,9 @@ h(Eyebrow,null,'THE PERSON BEHIND THE PROJECTS'),
 h('h1',null,'Hello again.',h('br'),'I’m ',h('em',null,'Sana.')),
 h('p',{className:'personal-lead'},'A curious mind with a passport, a craft box and a language list full of plans. I enjoy exploring new places, getting immersed in stories, making things and finding new ways to learn.')),
 h('div',{className:'personal-hero-art reveal'},
-h('div',{className:'personal-hero-photo main'},h('img',{src:personalHobbies[0].image,alt:personalHobbies[0].alt,loading:'eager'})),
-h('div',{className:'personal-hero-photo small'},h('img',{src:personalHobbies[2].image,alt:'A close-up of flowers and creative work',loading:'lazy'})),
-h('div',{className:'personal-hero-photo detail'},h('img',{src:personalHobbies[3].image,alt:'A language learning desk',loading:'lazy'})),
+h('div',{className:'personal-hero-photo main'},h('img',{src:interestFeatures[0].image,alt:interestFeatures[0].alt,loading:'eager'})),
+h('div',{className:'personal-hero-photo small'},h('img',{src:interestFeatures[2].image,alt:'A close-up of flowers and creative work',loading:'lazy'})),
+h('div',{className:'personal-hero-photo detail'},h('img',{src:interestFeatures[3].image,alt:'A language learning desk',loading:'lazy'})),
 h('div',{className:'photo-stamp'},h('strong',null,'07'),'COUNTRIES & COUNTING'))),
 h('div',{className:'personal-marquee','aria-label':'Travel, stories, crafts, language learning and new experiences'},
 h('div',{className:'personal-marquee-track'},[0,1].map(i=>h(React.Fragment,{key:i},['TRAVEL','K-DRAMAS','CRAFTS','LANGUAGES','SPORTS MEMORIES','LITTLE BIG PLANS'].map((x,j)=>h(React.Fragment,{key:x+i},h('span',null,x),h('b',null,'✳'))))))),
@@ -330,7 +330,7 @@ h('section',{className:'wrap personal-section reveal'},
 h('div',{className:'personal-section-head'},
 h('div',null,h(Eyebrow,null,'01 / THINGS I LOVE'),h('h2',{className:'personal-heading'},'A few of my favourite things.')),
 h('p',{className:'personal-sub'},'Little interests that make ordinary days more interesting — and always leave room for something new.')),
-h('div',{className:'hobby-grid'},personalHobbies.map(item=>h('article',{className:'interest-photo '+item.style,key:item.n},
+h('div',{className:'hobby-grid'},interestFeatures.map(item=>h('article',{className:'interest-photo '+item.style,key:item.n},
 h('img',{src:item.image,alt:item.alt,loading:'lazy'}),
 h('div',{className:'interest-copy'},h('small',null,item.type),h('h3',null,item.title),h('p',null,item.text),h('div',{className:'mini-tags'},item.tags.slice(0,4).map(tag=>h('span',{key:tag},tag))),
 item.style==='travel'?h('div',{className:'travel-stat'},h('strong',null,'07'),h('small',null,'COUNTRIES VISITED')):null))))),
