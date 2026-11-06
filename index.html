@@ -503,6 +503,60 @@ footer{border-top:1px solid var(--line);background:#0d0912}.foot{min-height:86px
 .day-speed{color:#85768d;font:8px var(--mono);margin-top:12px}
 @media(max-width:720px){.story-dialog{padding:25px 20px}.day-sky{height:230px}.day-readout{grid-template-columns:1fr;gap:16px;padding:19px}.day-events{grid-template-columns:repeat(2,1fr)}.day-event:last-child{grid-column:span 2}}
 
+
+/* Full-screen paint-flow page transition: exactly 0.8 seconds */
+.page-paint{
+ position:fixed;
+ z-index:9999;
+ top:-5vh;
+ left:-110vw;
+ width:120vw;
+ height:110vh;
+ pointer-events:none;
+ background:
+  radial-gradient(ellipse at 18% 18%,rgba(235,197,220,.9) 0%,rgba(235,197,220,0) 31%),
+  radial-gradient(ellipse at 76% 72%,rgba(94,167,156,.55) 0%,rgba(94,167,156,0) 35%),
+  linear-gradient(116deg,#26152d 0%,#69466f 35%,#b883ae 63%,#e0b8cb 100%);
+ clip-path:polygon(
+  0 0, 88% 0, 92% 3%, 89% 7%, 97% 11%, 91% 16%, 96% 21%,
+  90% 27%, 98% 32%, 91% 38%, 97% 44%, 90% 50%, 98% 56%,
+  91% 62%, 97% 68%, 90% 74%, 96% 80%, 90% 86%, 97% 92%,
+  91% 96%, 94% 100%, 0 100%
+ );
+ animation:paintAcross .8s cubic-bezier(.72,0,.24,1) both;
+ filter:drop-shadow(0 0 22px rgba(205,157,201,.24));
+}
+.page-paint:before{
+ content:'';
+ position:absolute;
+ inset:0;
+ opacity:.52;
+ background:
+  repeating-linear-gradient(172deg,transparent 0 24px,rgba(255,255,255,.08) 25px,transparent 29px 53px),
+  radial-gradient(ellipse at 42% 45%,rgba(255,255,255,.14),transparent 48%);
+ mix-blend-mode:screen;
+}
+.page-paint:after{
+ content:'';
+ position:absolute;
+ top:-2%;
+ right:4%;
+ width:12%;
+ height:104%;
+ background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,238,248,.62),rgba(255,255,255,0));
+ filter:blur(13px);
+ opacity:.85;
+}
+@keyframes paintAcross{
+ 0%{transform:translateX(0)}
+ 44%{transform:translateX(110vw)}
+ 56%{transform:translateX(110vw)}
+ 100%{transform:translateX(220vw)}
+}
+@media(prefers-reduced-motion:reduce){
+ .page-paint{animation-duration:.01ms;filter:none}
+}
+
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}.personal-marquee-track{animation:none}.reveal{opacity:1;transform:none}}
 </style>
 </head>
@@ -754,7 +808,31 @@ h('div',{className:'wrap personal-thanks reveal'},h('h2',null,'Still curious.',h
 h(StoryDialog,{story,onClose:closeStory})
 ))}
 function Footer({page,setPage}){const choose=x=>{setPage(x);window.scrollTo({top:0,behavior:'smooth'})};return h('footer',null,h('div',{className:'wrap foot'},h('a',{className:'footmark',href:'#top',onClick:()=>choose('professional')},'s.'),h('p',null,'Made with curiosity by Sana Bint Salim.'),h('div',{className:'footlinks'},h('button',{className:page==='professional'?'active':'',onClick:()=>choose('professional')},'Professional'),h('button',{className:page==='personal'?'active':'',onClick:()=>choose('personal')},'Personal'),h('a',{href:'https://github.com/sanaIITM',target:'_blank',rel:'noreferrer'},'GitHub ↗')),h('span',{className:'footyear'},'© 2026')))}
-function App(){const[page,setPage]=useState('professional');React.useEffect(()=>{if(page!=='personal')return;const nodes=document.querySelectorAll('.reveal');const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target)}}),{threshold:.12});nodes.forEach(node=>observer.observe(node));return()=>observer.disconnect()},[page]);return h(React.Fragment,null,h(Header,{page,setPage}),page==='professional'?h(Professional,{setPage}):h('main',null,h(Personal)),h(Footer,{page,setPage}))}
+function App(){
+const[page,setPage]=useState('professional');
+const[transitioning,setTransitioning]=useState(false);
+const switchPage=target=>{
+ if(target===page||transitioning)return;
+ setTransitioning(true);
+ window.setTimeout(()=>{setPage(target);window.scrollTo({top:0,behavior:'instant'})},400);
+ window.setTimeout(()=>setTransitioning(false),800);
+};
+React.useEffect(()=>{
+ if(page!=='personal')return;
+ const nodes=document.querySelectorAll('.reveal');
+ const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
+  if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target)}
+ }),{threshold:.12});
+ nodes.forEach(node=>observer.observe(node));
+ return()=>observer.disconnect();
+},[page]);
+return h(React.Fragment,null,
+ h(Header,{page,setPage:switchPage}),
+ page==='professional'?h(Professional,{setPage:switchPage}):h('main',null,h(Personal)),
+ h(Footer,{page,setPage:switchPage}),
+ transitioning?h('div',{className:'page-paint','aria-hidden':true}):null
+);
+}
 createRoot(document.getElementById('root')).render(h(React.StrictMode,null,h(App)));
 </script>
 </body></html>
