@@ -93,7 +93,158 @@ footer{border-top:1px solid var(--line);background:#0d0912}.foot{min-height:86px
 
 @media(max-width:900px){.wrap{width:min(100% - 52px,720px)}.hero{min-height:610px;grid-template-columns:1.1fr .9fr}.art{width:360px;margin-right:-35px}.core b{font-size:49px}.introgrid,.skillgrid,.edu{grid-template-columns:1fr;gap:45px}.edutimeline{margin-left:5px}.credentials{grid-column:auto}.interestgrid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.wrap{width:calc(100% - 40px)}header{width:calc(100% - 40px);height:72px}.brand{font-size:9px;gap:9px}.brandmark{width:31px;height:31px}.menu{display:block}nav{position:absolute;top:62px;left:0;right:0;display:none;padding:18px;gap:20px;background:#1a1220;border:1px solid var(--line);align-items:flex-start;flex-direction:column}nav.open{display:flex}.hero{display:flex;flex-direction:column;align-items:flex-start;min-height:0;padding-top:67px;padding-bottom:93px}.hero h1{font-size:clamp(50px,13vw,68px);margin:25px 0 18px}.lead{font-size:13px}.actions{margin-top:26px}.meta{margin-top:37px;gap:13px;flex-direction:column}.art{width:min(340px,100%);align-self:center;margin:25px 0 0}.sticker{font-size:8px;padding:9px 11px}.scroll{bottom:30px}.band{padding:65px 0}.introgrid{gap:28px}.statement{font-size:28px}.section{padding-top:83px;padding-bottom:82px}.sectiontitle h2,.skillsintro h2{font-size:43px}.grid{grid-template-columns:1fr;gap:16px;margin-top:34px}.pvisual{height:145px}.skillgrid{gap:34px}.skillrow{grid-template-columns:39px 1fr 23px;gap:12px}.skillicon{width:36px;height:36px}.edu{row-gap:38px}.eduitem{grid-template-columns:1fr;gap:7px}.credentials{padding:20px 17px}.credrow{grid-template-columns:1fr;gap:5px}.contact{padding:75px 0}.contact h2{font-size:48px}.foot{min-height:120px;padding:20px 0;flex-wrap:wrap}.foot p{flex:1}.footlinks{order:3;width:100%;justify-content:center}.footyear{margin-left:auto}.personalhero{padding-top:80px;padding-bottom:70px}.personalhero h1{font-size:63px}.scribble{position:static;margin:35px 0 0 10px}.interests{padding-top:70px;padding-bottom:80px}.interestgrid{grid-template-columns:1fr;gap:13px}.interest{padding:17px 18px 20px}.iart{height:116px}.interest h3{font-size:22px}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+/* Personal journal: photographic cards, timelines and motion */
+.personalhero-new{display:grid;grid-template-columns:1.02fr .98fr;align-items:center;gap:45px;padding-top:100px;padding-bottom:82px}
+.personalhero-new h1{font-size:clamp(57px,6.5vw,82px);margin:24px 0 20px}
+.personal-hero-copy .personal-lead{max-width:470px}
+.personal-hero-art{position:relative;min-height:430px;display:flex;align-items:center;justify-content:center}
+.personal-hero-photo{position:absolute;overflow:hidden;border:1px solid rgba(239,214,235,.24);box-shadow:0 24px 70px rgba(0,0,0,.38);background:#21182a}
+.personal-hero-photo img,.interest-photo img,.life-photo img,.cinema-photo img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.7,.2,1),filter .8s}
+.personal-hero-photo img{filter:saturate(.82)}
+.personal-hero-photo.main{width:75%;height:365px;right:7%;top:25px;transform:rotate(2deg);border-radius:5px}
+.personal-hero-photo.small{width:42%;height:170px;left:0;bottom:8px;transform:rotate(-6deg);z-index:2;border-radius:4px}
+.personal-hero-photo.detail{width:36%;height:132px;right:0;bottom:0;transform:rotate(5deg);z-index:3;border-radius:4px}
+.personal-hero-photo:hover img,.interest-photo:hover img,.life-photo:hover img,.cinema-photo:hover img{transform:scale(1.07);filter:saturate(1.1)}
+.photo-stamp{position:absolute;z-index:4;right:1%;top:5%;padding:13px 16px;background:#c9a4ce;color:#1d1323;font:9px var(--mono);letter-spacing:.13em;transform:rotate(6deg);box-shadow:0 12px 25px #0003}
+.photo-stamp strong{display:block;font:500 26px var(--serif);letter-spacing:0;text-align:center}
+.personal-marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(50,34,58,.45);padding:15px 0;white-space:nowrap}
+.personal-marquee-track{display:flex;width:max-content;gap:34px;align-items:center;animation:personal-marquee 34s linear infinite}
+.personal-marquee span{color:#d8bdd8;font:10px var(--mono);letter-spacing:.16em;text-transform:uppercase}
+.personal-marquee b{color:#c38eb8;font-size:14px}
+@keyframes personal-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.personal-section{padding-top:102px;padding-bottom:100px}
+.personal-section-head{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:35px}
+.personal-section-head .personal-heading{margin-bottom:0}
+.personal-section-head .personal-sub{max-width:430px;margin:0}
+.hobby-grid{display:grid;grid-template-columns:1.15fr .85fr .85fr;grid-template-rows:235px 235px;gap:15px}
+.interest-photo{position:relative;overflow:hidden;min-width:0;border:1px solid var(--line);background:#22182b}
+.interest-photo img{position:absolute;inset:0}
+.interest-photo:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,10,18,.02) 18%,rgba(14,10,18,.18) 43%,rgba(14,10,18,.9) 100%)}
+.interest-photo.travel{grid-row:span 2}
+.interest-photo.languages{grid-column:span 2}
+.interest-copy{position:absolute;z-index:2;left:21px;right:20px;bottom:19px}
+.interest-copy small{display:block;color:#e2bdd6;font:9px var(--mono);letter-spacing:.15em;text-transform:uppercase;margin-bottom:7px}
+.interest-copy h3{font:500 24px var(--serif);margin:0 0 6px;color:#fff}
+.interest-copy p{font-size:10px;line-height:1.65;color:#e2d7e3;margin:0;max-width:480px}
+.interest-copy .mini-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.mini-tags span{font:8px var(--mono);color:#f0e1ef;border:1px solid rgba(255,255,255,.3);padding:5px 7px;background:rgba(17,12,22,.26)}
+.travel-strip{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+.travel-strip span{font:9px var(--mono);color:#dac1db;border:1px solid rgba(219,183,219,.2);background:rgba(17,12,22,.3);padding:7px 9px}
+.travel-stat{display:inline-flex;align-items:baseline;gap:9px;margin-top:15px;color:#e9d9ec}
+.travel-stat strong{font:500 34px var(--serif);color:#f1c9dd}
+.travel-stat small{font:8px var(--mono);letter-spacing:.13em}
+.carousel-controls{display:flex;gap:8px;flex-shrink:0}
+.carousel-arrow{width:38px;height:38px;border:1px solid rgba(216,187,222,.25);border-radius:50%;background:rgba(38,27,46,.8);color:#ead9ed;cursor:pointer;transition:.2s}
+.carousel-arrow:hover{background:#d3a8c8;color:#241727;transform:translateY(-2px)}
+.life-track{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px,31%);gap:15px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:4px 2px 17px}
+.life-track::-webkit-scrollbar{display:none}
+.life-card{scroll-snap-align:start;border:1px solid var(--line);background:rgba(29,21,36,.94);min-width:0;overflow:hidden}
+.life-photo{height:175px;overflow:hidden;position:relative}
+.life-photo img{position:absolute;inset:0}
+.life-content{padding:20px 21px 22px}
+.life-content small{font:9px var(--mono);letter-spacing:.15em;color:#d1a5c7}
+.life-content h3{font:500 23px var(--serif);margin:9px 0;color:#f1e7f1}
+.life-content p{font-size:11px;color:#a99bac;line-height:1.8;margin:0}
+.language-zone{display:grid;grid-template-columns:.8fr 1.2fr;gap:20px}
+.language-feature{padding:30px;border:1px solid rgba(217,178,218,.25);background:radial-gradient(circle at 80% 10%,rgba(201,144,190,.18),transparent 38%),linear-gradient(140deg,rgba(65,43,71,.7),rgba(28,19,35,.9));position:relative;overflow:hidden}
+.language-feature:after{content:'A B C';position:absolute;right:-4px;bottom:-24px;color:rgba(224,188,216,.05);font:500 94px var(--serif);letter-spacing:-.08em}
+.language-number{font:500 69px/.95 var(--serif);color:#edc7dd}
+.language-kicker{font:9px var(--mono);letter-spacing:.17em;color:#d0b5d2;margin-top:8px}
+.language-feature p{font-size:11px;line-height:1.85;color:#b9acbf;max-width:350px;margin:22px 0 0}
+.language-future{position:relative;z-index:1;margin-top:20px;color:#edc4dc;font:italic 17px var(--serif)}
+.language-list{border-top:1px solid var(--line)}
+.language-item{display:grid;grid-template-columns:90px 1fr;gap:15px;padding:17px 0;border-bottom:1px solid var(--line)}
+.language-item strong{color:#f1e6f2;font:500 16px var(--serif)}
+.language-item p{margin:0;color:#a99bac;font-size:10px;line-height:1.8}
+.routine-board{padding:25px 26px 24px;border:1px solid var(--line);background:linear-gradient(125deg,rgba(17,62,54,.72),rgba(19,33,39,.88));position:relative;overflow:hidden}
+.routine-board:before{content:'';position:absolute;width:250px;height:250px;right:-60px;top:-150px;border:1px solid rgba(177,220,199,.17);border-radius:50%;box-shadow:0 0 0 26px rgba(177,220,199,.03),0 0 0 55px rgba(177,220,199,.025)}
+.routine-flow{display:grid;grid-template-columns:repeat(5,1fr);position:relative;z-index:1}
+.routine-step{padding:14px 15px 10px;border-left:1px solid rgba(210,236,222,.18);position:relative}
+.routine-step:first-child{border-left:0}
+.routine-step:before{content:'';position:absolute;width:7px;height:7px;border-radius:50%;background:#b5dfc5;top:0;left:-4px;box-shadow:0 0 14px rgba(181,223,197,.5)}
+.routine-step time{display:block;color:#b5e1c9;font:9px var(--mono);margin-bottom:16px}
+.routine-step strong{display:block;color:#fff;font:500 17px var(--serif);margin-bottom:7px}
+.routine-step p{font-size:9px;line-height:1.7;color:#bed0c8;margin:0}
+.routine-foot{position:relative;z-index:1;margin:18px 0 0;color:#87a99a;font:9px var(--mono)}
+.goals-board{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}
+.goal-tile{min-height:114px;position:relative;padding:18px 17px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(42,30,50,.96),rgba(22,16,29,.96));overflow:hidden;transition:transform .3s,border-color .3s}
+.goal-tile:hover{transform:translateY(-5px) rotate(-.5deg);border-color:rgba(215,166,201,.5)}
+.goal-tile:nth-child(2n){background:linear-gradient(145deg,rgba(56,37,61,.9),rgba(25,18,32,.96))}
+.goal-tile .goal-index{display:block;font:9px var(--mono);color:#c99fbd;margin-bottom:16px}
+.goal-tile strong{font:500 17px var(--serif);color:#f1e5f2}
+.goal-tile i{position:absolute;right:14px;top:13px;color:#dba8cc;font-style:normal;font-size:17px;opacity:.8}
+.watch-row{display:grid;grid-template-columns:1.1fr .9fr;gap:17px;margin-top:24px}
+.cinema-photo{height:220px;position:relative;overflow:hidden;border:1px solid var(--line);background:#201626}
+.cinema-photo img{position:absolute;inset:0}
+.cinema-photo:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,10,18,.7),rgba(14,10,18,.06))}
+.cinema-caption{position:absolute;z-index:2;left:23px;bottom:22px}
+.cinema-caption small{display:block;font:9px var(--mono);letter-spacing:.15em;color:#e4b8d2;margin-bottom:8px}
+.cinema-caption strong{font:500 27px var(--serif);color:#fff}
+.watch-note{padding:25px;border:1px solid var(--line);background:rgba(34,24,41,.78);display:flex;flex-direction:column;justify-content:center}
+.watch-note small{font:9px var(--mono);letter-spacing:.15em;color:#c99fbd}
+.watch-note p{font:italic 19px/1.55 var(--serif);color:#e4d6e7;margin:13px 0 0}
+.personal-thanks{margin-top:36px;padding:66px 30px;text-align:center;border:1px solid rgba(215,177,220,.18);background:radial-gradient(ellipse at 50% 0%,rgba(144,88,147,.18),transparent 60%),rgba(25,18,32,.7);position:relative;overflow:hidden}
+.personal-thanks:before,.personal-thanks:after{content:'✦';position:absolute;color:rgba(225,177,219,.45);font-size:17px;animation:twinkle 3s ease-in-out infinite}
+.personal-thanks:before{top:24%;left:13%}.personal-thanks:after{bottom:20%;right:14%;animation-delay:1.2s}
+.personal-thanks h2{font:500 clamp(30px,4vw,47px)/1.25 var(--serif);margin:0;color:#f5eaf5}
+.personal-thanks h2 em{color:#d6a2d0}
+.personal-thanks p{font:10px var(--mono);letter-spacing:.13em;color:#9b8ca2;margin:14px 0 0}
+@keyframes twinkle{0%,100%{opacity:.3;transform:scale(.8) rotate(0)}50%{opacity:1;transform:scale(1.3) rotate(35deg)}}
+@media(max-width:900px){
+.personalhero-new{grid-template-columns:1fr;gap:25px;padding-top:80px}
+.personal-hero-art{min-height:350px;width:min(100%,530px);margin:0 auto}
+.personal-hero-photo.main{height:310px}
+.hobby-grid{grid-template-columns:1fr 1fr;grid-template-rows:225px 225px 225px}
+.interest-photo.travel{grid-row:auto;grid-column:span 2}
+.interest-photo.languages{grid-column:span 2}
+.life-track{grid-auto-columns:minmax(270px,46%)}
+.language-zone{grid-template-columns:1fr}
+.routine-flow{grid-template-columns:repeat(3,1fr);row-gap:23px}
+.routine-step:nth-child(4){border-left:0}
+.goals-board{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:640px){
+.personalhero-new{padding-top:65px;padding-bottom:58px}
+.personalhero-new h1{font-size:clamp(50px,12vw,67px)}
+.personal-hero-art{min-height:290px}
+.personal-hero-photo.main{height:250px;width:76%}
+.personal-hero-photo.small{height:120px;width:43%}
+.personal-hero-photo.detail{height:100px;width:36%}
+.photo-stamp{font-size:8px;padding:9px 11px}
+.photo-stamp strong{font-size:21px}
+.personal-section{padding-top:72px;padding-bottom:72px}
+.personal-section-head{display:block}
+.personal-section-head .personal-sub{margin-top:13px}
+.hobby-grid{grid-template-columns:1fr 1fr;grid-template-rows:205px 205px 205px}
+.interest-photo.travel{grid-column:span 2}
+.interest-photo.languages{grid-column:span 2}
+.interest-copy{left:14px;right:13px;bottom:14px}
+.interest-copy h3{font-size:20px}
+.interest-copy p{font-size:9px}
+.interest-copy .mini-tags{gap:4px}
+.mini-tags span{font-size:7px;padding:4px 5px}
+.life-track{grid-auto-columns:82%}
+.life-photo{height:155px}
+.language-feature{padding:23px}
+.language-number{font-size:58px}
+.language-item{grid-template-columns:72px 1fr;gap:10px}
+.routine-board{padding:20px 16px}
+.routine-flow{grid-template-columns:1fr 1fr;row-gap:20px}
+.routine-step{padding:10px 10px 9px 14px}
+.routine-step:nth-child(3),.routine-step:nth-child(5){border-left:0}
+.routine-step:nth-child(4){border-left:1px solid rgba(210,236,222,.18)}
+.goals-board{grid-template-columns:1fr 1fr}
+.goal-tile{min-height:100px;padding:14px 12px}
+.goal-tile strong{font-size:15px}
+.watch-row{grid-template-columns:1fr}
+.cinema-photo{height:205px}
+.watch-note{padding:20px}
+.personal-thanks{padding:50px 17px}
+}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1)}.reveal.is-visible{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}.personal-marquee-track{animation:none}.reveal{opacity:1;transform:none}}
 </style>
 </head>
 <body><div id="root"></div>
@@ -142,74 +293,74 @@ const dailyRoutine=[
 ['09:00 PM','Sleep','An early night and a fresh start.']
 ];
 const futurePlans=['Graduate','Travel more','Start going to the gym','Become really good at French','Learn German','Make my friends happy','Make my family happy'];
+const personalHobbies=[
+{n:'01',type:'TRAVEL & EXPLORATION',title:'A passport full of memories',text:'Seven countries so far, and still a long list of places I hope to see. I love the feeling of discovering somewhere new.',tags:['Saudi Arabia','UAE','Bahrain','Oman','Kuwait','Qatar','Sri Lanka'],image:'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=85',alt:'A scenic mountain lake at golden hour',style:'travel'},
+{n:'02',type:'K-DRAMAS & FILMS',title:'One more episode?',text:'I enjoy getting lost in a good story — especially Korean dramas, along with films that stay with me after the credits.',tags:['K-dramas','Movies','Storytelling'],image:'https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=1000&q=85',alt:'A cinematic movie theatre',style:'small'},
+{n:'03',type:'CRAFTS & MAKING',title:'A creative side',text:'From calligraphy to handmade details, I enjoy the patience and imagination that go into making something by hand.',tags:['Arabic calligraphy','Bouquet making','Crafts'],image:'https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1000&q=85',alt:'Soft floral arrangement',style:'small'},
+{n:'04',type:'LANGUAGES',title:'A polyglot in the making',text:'I can currently read and write five languages. French and Arabic are at a basic A1 level in understanding and comprehension, and I want to keep growing.',tags:['French','Arabic','Malayalam','German next'],image:'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1200&q=85',alt:'Books and study materials on a desk',style:'languages'}
+];
+const lifeChapters=[
+{label:'MIDDLE SCHOOL · SPORTS',title:'A sporty chapter',desc:'I was part of the school teams for tug of war, kho-kho and volleyball. I also won in shot put and long jump.',img:'https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=900&q=85',alt:'Outdoor sports and movement'},
+{label:'SCHOOL · CREATIVE PURSUITS',title:'Making things by hand',desc:'I became more interested in crafts during high school. I was a state-level winner in Arabic calligraphy and also won in vegetable carving and bouquet making.',img:'https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=900&q=85',alt:'Flowers arranged by hand'},
+{label:'COLLEGE · PRESENT DAY',title:'Learning in more than one direction',desc:'Balancing my B.Tech in Computer Science and Engineering with the IIT Madras BS in Data Science and Applications, while building technical depth and life skills.',img:'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=85',alt:'A laptop and workspace'},
+{label:'LANGUAGES · ALWAYS LEARNING',title:'A world of words',desc:'French was my third language during schooling in Saudi Arabia, and I continued it in India. I started learning Malayalam from Grade 9 onwards.',img:'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=85',alt:'Writing notes with a pen'}
+];
+const routine=[
+['04:00–05:00 AM','Wake up','As early as 4; usually around 5.'],
+['08:00 AM','School / work','The day gets underway.'],
+['06:00 PM','Hobbies','A little time for myself.'],
+['08:00 PM','Study session','An evening learning block.'],
+['09:00 PM','Sleep','Early night, fresh start.']
+];
+const goals=['Graduation','Travel more','Start going to the gym','Become really good at French','Learn German','Make my friends happy','Make my family happy'];
 function Personal(){return h(React.Fragment,null,
-h('section',{className:'wrap personalhero'},
-h(Eyebrow,null,'A LITTLE MORE ABOUT ME'),
-h('h1',null,'Life beyond',h('br'),h('em',null,'the classroom.')),
-h('p',{className:'personal-lead'},'I am someone who enjoys exploring new places, stories, languages and creative interests. My interests have changed through different stages of life, and I like having goals that give me something new to look forward to.')),
-h('section',{className:'wrap personal-sections'},
-h(Eyebrow,null,'01 / THINGS I ENJOY'),
-h('h2',{className:'personal-heading'},'A few of my favourite things.'),
-h('p',{className:'personal-sub'},'Travel, K-dramas, crafts and languages are some of the things I make time for outside academics.'),
-h('div',{className:'personal-intro-grid'},personalHobbies.map(item=>h('article',{className:'personal-feature',key:item.number},
-h('div',{className:'story-label'},item.number+' / '+item.label+' '+item.icon),
-h('h3',null,item.title),
-h('p',null,item.body),
-h('div',{className:'story-tags'},item.tags.map(tag=>h('span',{key:tag},tag))))))),
-h('section',{className:'wrap personal-sections'},
-h(Eyebrow,null,'02 / MY LANGUAGE JOURNEY'),
-h('h2',{className:'personal-heading'},'A dream of becoming a polyglot.'),
-h('div',{className:'language-layout'},
-h('div',{className:'language-callout'},
-h('strong',null,'05'),
-h('span',null,'LANGUAGES I CAN READ AND WRITE'),
-h('p',null,'French and Arabic are currently at a basic A1 level of understanding and comprehension. I hope to become more fluent and confident with continued learning.')),
-h('div',{className:'language-notes'},languageJourney.map(item=>h('div',{className:'language-note',key:item[0]},
-h('strong',null,item[0]),h('p',null,item[1])))))),
-h('section',{className:'wrap personal-sections'},
-h(Eyebrow,null,'03 / THE DIFFERENT CHAPTERS'),
-h('h2',{className:'personal-heading'},'Interests that grew with me.'),
-h('p',{className:'personal-sub'},'From school activities to a broader academic journey, each chapter has added something to who I am.'),
-h('div',{className:'story-grid'},
-h('article',{className:'story-card'},
-h('div',{className:'story-label'},'MIDDLE SCHOOL · SPORTS'),
-h('h3',null,'A sporty chapter'),
-h('p',null,'I was part of the school teams for tug of war, kho-kho and volleyball. I also competed in individual events and won in shot put and long jump.'),
-h('div',{className:'story-tags'},['Tug of war','Kho-kho','Volleyball','Shot put','Long jump'].map(x=>h('span',{key:x},x)))),
-h('article',{className:'story-card'},
-h('div',{className:'story-label'},'SCHOOL · CREATIVE PURSUITS'),
-h('h3',null,'Creativity through crafts'),
-h('p',null,'In school, I became more interested in crafts and creative competitions. I was a state-level winner in Arabic calligraphy and also won in high-school events such as vegetable carving and bouquet making.'),
-h('div',{className:'calligraphy'},'State-level winner · Arabic Calligraphy'),
-h('div',{className:'story-tags'},['Arabic calligraphy','Vegetable carving','Bouquet making'].map(x=>h('span',{key:x},x)))),
-h('article',{className:'story-card'},
-h('div',{className:'story-label'},'COLLEGE · PRESENT DAY'),
-h('h3',null,'Learning in more than one direction'),
-h('p',null,'College has been a time of balancing my B.Tech in Computer Science and Engineering with the IIT Madras BS in Data Science and Applications. I have focused on learning more about data, building technical depth and developing life skills alongside academics.'),
-h('div',{className:'story-tags'},['Computer Science','Data Science','Life skills','Continuous learning'].map(x=>h('span',{key:x})))))),
-h('section',{className:'wrap personal-sections'},
-h(Eyebrow,null,'04 / A TYPICAL DAY'),
-h('h2',{className:'personal-heading'},'A rhythm that works for me.'),
-h('p',{className:'personal-sub'},'My usual routine balances the day’s responsibilities with time for hobbies and a quiet evening study session.'),
-h('div',{className:'routine-grid'},dailyRoutine.map((item,i)=>h('article',{className:'routine-item',key:item[0]},
-h('div',{className:'routine-time'},item[0]),
-h('strong',null,item[1]),
-h('p',null,item[2])))),
-h('p',{className:'routine-note'},'* Usual timings; wake-up time can be as early as 4:00 AM.')),
-h('section',{className:'wrap personal-sections'},
-h(Eyebrow,null,'05 / LOOKING AHEAD'),
-h('h2',{className:'personal-heading'},'Things I hope to do.'),
-h('p',{className:'personal-sub'},'A mix of personal milestones, new experiences and the people who matter most.'),
-h('div',{className:'goals-grid'},futurePlans.map((item,i)=>h('div',{className:'goal',key:item},
-h('span',{className:'goal-no'},String(i+1).padStart(2,'0')),
-h('span',null,item)))),
-h('div',{className:'movie-panel',style:{marginTop:'30px'}},
-h('div',{className:'movie-mark'},'✧'),
-h('div',null,h('small',null,'LAST MOVIE WATCHED'),h('strong',null,'Sense and Sensibility'),h('p',null,'2026')))),
-h('div',{className:'wrap personal-closing'},'Always learning, collecting memories and making room for what comes next.')
+h('section',{className:'wrap personalhero personalhero-new'},
+h('div',{className:'personal-hero-copy reveal'},
+h(Eyebrow,null,'THE PERSON BEHIND THE PROJECTS'),
+h('h1',null,'Hello again.',h('br'),'I’m ',h('em',null,'Sana.')),
+h('p',{className:'personal-lead'},'A curious mind with a passport, a craft box and a language list full of plans. I enjoy exploring new places, getting immersed in stories, making things and finding new ways to learn.')),
+h('div',{className:'personal-hero-art reveal'},
+h('div',{className:'personal-hero-photo main'},h('img',{src:personalHobbies[0].image,alt:personalHobbies[0].alt,loading:'eager'})),
+h('div',{className:'personal-hero-photo small'},h('img',{src:personalHobbies[2].image,alt:'A close-up of flowers and creative work',loading:'lazy'})),
+h('div',{className:'personal-hero-photo detail'},h('img',{src:personalHobbies[3].image,alt:'A language learning desk',loading:'lazy'})),
+h('div',{className:'photo-stamp'},h('strong',null,'07'),'COUNTRIES & COUNTING'))),
+h('div',{className:'personal-marquee','aria-label':'Travel, stories, crafts, language learning and new experiences'},
+h('div',{className:'personal-marquee-track'},[0,1].map(i=>h(React.Fragment,{key:i},['TRAVEL','K-DRAMAS','CRAFTS','LANGUAGES','SPORTS MEMORIES','LITTLE BIG PLANS'].map((x,j)=>h(React.Fragment,{key:x+i},h('span',null,x),h('b',null,'✳'))))))),
+h('section',{className:'wrap personal-section reveal'},
+h('div',{className:'personal-section-head'},
+h('div',null,h(Eyebrow,null,'01 / THINGS I LOVE'),h('h2',{className:'personal-heading'},'A few of my favourite things.')),
+h('p',{className:'personal-sub'},'Little interests that make ordinary days more interesting — and always leave room for something new.')),
+h('div',{className:'hobby-grid'},personalHobbies.map(item=>h('article',{className:'interest-photo '+item.style,key:item.n},
+h('img',{src:item.image,alt:item.alt,loading:'lazy'}),
+h('div',{className:'interest-copy'},h('small',null,item.type),h('h3',null,item.title),h('p',null,item.text),h('div',{className:'mini-tags'},item.tags.slice(0,4).map(tag=>h('span',{key:tag},tag))),
+item.style==='travel'?h('div',{className:'travel-stat'},h('strong',null,'07'),h('small',null,'COUNTRIES VISITED')):null))))),
+h('section',{className:'wrap personal-section reveal'},
+h('div',{className:'personal-section-head'},
+h('div',null,h(Eyebrow,null,'02 / LIFE IN CHAPTERS'),h('h2',{className:'personal-heading'},'Different seasons, different stories.')),
+h('div',{className:'carousel-controls'},h('button',{className:'carousel-arrow','aria-label':'Scroll life stories left',onClick:()=>document.getElementById('lifeTrack')?.scrollBy({left:-340,behavior:'smooth'})},'←'),h('button',{className:'carousel-arrow','aria-label':'Scroll life stories right',onClick:()=>document.getElementById('lifeTrack')?.scrollBy({left:340,behavior:'smooth'})},'→'))),
+h('div',{className:'life-track',id:'lifeTrack'},lifeChapters.map(item=>h('article',{className:'life-card',key:item.title},h('div',{className:'life-photo'},h('img',{src:item.img,alt:item.alt,loading:'lazy'})),h('div',{className:'life-content'},h('small',null,item.label),h('h3',null,item.title),h('p',null,item.desc)))))),
+h('section',{className:'wrap personal-section reveal'},
+h('div',{className:'personal-section-head'},h('div',null,h(Eyebrow,null,'03 / LANGUAGE CORNER'),h('h2',{className:'personal-heading'},'Dreaming in more than one language.'))),
+h('div',{className:'language-zone'},
+h('div',{className:'language-feature'},h('div',{className:'language-number'},'05'),h('div',{className:'language-kicker'},'LANGUAGES I CAN READ AND WRITE'),h('p',null,'My interest in languages began during my school years in Saudi Arabia and continued as I studied in India. French and Arabic are currently at a basic A1 level in understanding and comprehension.'),h('div',{className:'language-future'},'Next chapters: better French + German')),
+h('div',{className:'language-list'},
+h('div',{className:'language-item'},h('strong',null,'French'),h('p',null,'My third language at school in Saudi Arabia. I continued learning it in India, and want to become much more confident in it.')),
+h('div',{className:'language-item'},h('strong',null,'Arabic'),h('p',null,'Currently at a basic A1 level of understanding and comprehension, with a special connection to Arabic calligraphy.')),
+h('div',{className:'language-item'},h('strong',null,'Malayalam'),h('p',null,'I began learning Malayalam from Grade 9 onwards after continuing my schooling in India.')),
+h('div',{className:'language-item'},h('strong',null,'German'),h('p',null,'A future language goal — one more step towards the polyglot dream.'))))),
+h('section',{className:'wrap personal-section reveal'},
+h('div',{className:'personal-section-head'},h('div',null,h(Eyebrow,null,'04 / A TYPICAL DAY'),h('h2',{className:'personal-heading'},'My day, in little markers.')),h('p',{className:'personal-sub'},'A familiar rhythm that makes room for responsibilities, hobbies and focused study.')),
+h('div',{className:'routine-board'},h('div',{className:'routine-flow'},routine.map((item,i)=>h('div',{className:'routine-step',key:item[0]},h('time',null,item[0]),h('strong',null,item[1]),h('p',null,item[2])))),h('div',{className:'routine-foot'},'A FLEXIBLE ROUTINE · THE DAY USUALLY STARTS BETWEEN 4 AND 5 AM'))),
+h('section',{className:'wrap personal-section reveal'},
+h('div',{className:'personal-section-head'},h('div',null,h(Eyebrow,null,'05 / THE WISH LIST'),h('h2',{className:'personal-heading'},'A few things I’m working towards.')),h('p',{className:'personal-sub'},'Big milestones, small adventures and the people I want to make proud.')),
+h('div',{className:'goals-board'},goals.map((item,i)=>h('article',{className:'goal-tile',key:item},h('i',null,['✧','↗','✳','文','A','♡','♡'][i]),h('span',{className:'goal-index'},'0'+(i+1)),h('strong',null,item)))),
+h('div',{className:'watch-row'},
+h('div',{className:'cinema-photo'},h('img',{src:'https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=1200&q=85',alt:'A cinematic movie theatre',loading:'lazy'}),h('div',{className:'cinema-caption'},h('small',null,'RECENTLY WATCHED'),h('strong',null,'Sense and Sensibility'))),
+h('div',{className:'watch-note'},h('small',null,'A LITTLE SCREEN TIME'),h('p',null,'K-dramas and films are a favourite way to unwind. The last film I watched was Sense and Sensibility (2026).')))),
+h('div',{className:'wrap personal-thanks reveal'},h('h2',null,'Still curious.',h('br'),h('em',null,'Still becoming.')),h('p',null,'MORE PLACES · MORE LANGUAGES · MORE STORIES'))
 )}
 function Footer({page,setPage}){const choose=x=>{setPage(x);window.scrollTo({top:0,behavior:'smooth'})};return h('footer',null,h('div',{className:'wrap foot'},h('a',{className:'footmark',href:'#top',onClick:()=>choose('professional')},'s.'),h('p',null,'Made with curiosity by Sana Bint Salim.'),h('div',{className:'footlinks'},h('button',{className:page==='professional'?'active':'',onClick:()=>choose('professional')},'Professional'),h('button',{className:page==='personal'?'active':'',onClick:()=>choose('personal')},'Personal'),h('a',{href:'https://github.com/sanaIITM',target:'_blank',rel:'noreferrer'},'GitHub ↗')),h('span',{className:'footyear'},'© 2026')))}
-function App(){const[page,setPage]=useState('professional');return h(React.Fragment,null,h(Header,{page,setPage}),page==='professional'?h(Professional,{setPage}):h('main',null,h(Personal)),h(Footer,{page,setPage}))}
+function App(){const[page,setPage]=useState('professional');React.useEffect(()=>{if(page!=='personal')return;const nodes=document.querySelectorAll('.reveal');const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target)}}),{threshold:.12});nodes.forEach(node=>observer.observe(node));return()=>observer.disconnect()},[page]);return h(React.Fragment,null,h(Header,{page,setPage}),page==='professional'?h(Professional,{setPage}):h('main',null,h(Personal)),h(Footer,{page,setPage}))}
 createRoot(document.getElementById('root')).render(h(React.StrictMode,null,h(App)));
 </script>
 </body></html>
