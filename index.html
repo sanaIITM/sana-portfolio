@@ -602,7 +602,7 @@ const [minute,setMinute]=React.useState(240);
 const [playing,setPlaying]=React.useState(false);
 React.useEffect(()=>{
  if(!playing)return;
- const timer=setInterval(()=>setMinute(current=>current>=1410?0:current+30),625);
+ const timer=setInterval(()=>setMinute(current=>{if(current>=1410){setPlaying(false);return 0}return current+30}),625);
  return()=>clearInterval(timer);
 },[playing]);
 const hour=Math.floor(minute/60),mins=minute%60;
