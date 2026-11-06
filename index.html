@@ -387,6 +387,76 @@ footer{border-top:1px solid var(--line);background:#0d0912}.foot{min-height:86px
  .plan-detail{padding-left:66px}
 }
 
+
+/* Final interaction and layout corrections */
+.hobby-grid{
+  grid-template-rows:auto;
+  grid-auto-rows:minmax(235px,auto);
+  align-items:stretch;
+  margin-top:0;
+}
+.interest-photo{
+  display:flex;
+  flex-direction:column;
+  height:auto;
+  min-height:235px;
+  overflow:hidden;
+  transform:none;
+}
+.interest-photo.travel{
+  grid-row:span 2;
+  min-height:485px;
+}
+.interest-photo button{
+  position:relative;
+  inset:auto;
+  z-index:3;
+  display:block;
+  width:100%;
+  height:235px;
+  min-height:235px;
+  flex:0 0 235px;
+  margin:0;
+  padding:0;
+  border:0;
+  background:transparent;
+  text-align:left;
+}
+.interest-photo.travel button{
+  height:100%;
+  min-height:485px;
+  flex-basis:485px;
+}
+.interest-photo:after{z-index:2;pointer-events:none}
+.interest-photo .inline-detail{
+  position:relative;
+  z-index:4;
+  display:block;
+  flex:1 0 auto;
+  padding:15px 17px 17px;
+  border-top:1px solid rgba(220,184,226,.16);
+  background:rgba(16,11,22,.96);
+}
+.interest-photo:hover{transform:none}
+.plan-row{grid-template-columns:26px 44px 1fr;cursor:pointer}
+.plan-status{display:none!important}
+.plan-detail{padding-left:84px}
+.plan-row.is-done .plan-check{background:#82c9a8;border-color:#82c9a8;color:#13271e}
+@media(max-width:900px){
+ .interest-photo.travel{min-height:460px}
+ .interest-photo.travel button{min-height:460px;flex-basis:460px}
+}
+@media(max-width:640px){
+ .hobby-grid{grid-template-rows:auto;grid-auto-rows:minmax(205px,auto)}
+ .interest-photo{min-height:205px}
+ .interest-photo button{height:205px;min-height:205px;flex-basis:205px}
+ .interest-photo.travel{grid-row:auto;min-height:205px}
+ .interest-photo.travel button{height:205px;min-height:205px;flex-basis:205px}
+ .interest-photo .inline-detail{font-size:10px}
+ .plan-row{grid-template-columns:22px 28px 1fr;gap:9px;padding:14px 10px}
+ .plan-detail{padding:0 12px 14px 59px}
+}
+
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}.personal-marquee-track{animation:none}.reveal{opacity:1;transform:none}}
 </style>
 </head>
@@ -446,7 +516,7 @@ const lifeChapters=[
 {label:'MIDDLE SCHOOL · SPORTS',title:'A sporty chapter',desc:'I was part of the school teams for tug of war, kho-kho and volleyball. I also won in shot put and long jump. Volleyball was one of the team sports I enjoyed, and the image captures the energy of the game.',img:'https://tvf.org.tr/storage/52331/WhatsApp-Image-2023-01-22-at-16.50.37-1.jpeg',alt:'Women playing volleyball and competing at the net',credit:'https://tvf.org.tr/'},
 {label:'SCHOOL · CREATIVE PURSUITS',title:'Making things by hand',desc:'I became more interested in crafts during high school. I was a state-level winner in Arabic calligraphy and also won in vegetable carving and bouquet making. Arabic calligraphy is especially meaningful to me because it combines patience, precision and visual creativity.',img:'https://festival.si.edu/sites/default/files/orchard/festival/media/default/blog/sff2023_07-01_rv_0049.jpg',alt:'A calligrapher writing Arabic script with a reed pen',credit:'https://festival.si.edu/blog/islamic-calligraphy-josh-berer-mariam-lodin'},
 {label:'COLLEGE · PRESENT DAY',title:'Learning in more than one direction',desc:'Balancing my B.Tech in Computer Science and Engineering with the IIT Madras BS in Data Science and Applications, while building technical depth and life skills.',img:'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=85',alt:'A laptop and workspace'},
-{label:'LANGUAGES · ALWAYS LEARNING',title:'A world of words',desc:'French was my third language during schooling in Saudi Arabia, and I continued it in India. I started learning Malayalam from Grade 9 onwards.',img:'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=85',alt:'Writing notes with a pen'}
+{label:'LANGUAGES · ALWAYS LEARNING',title:'A world of words',desc:'French was my third language during schooling in Saudi Arabia. I began learning Malayalam from Grade 9 onwards after moving to India.',img:'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=85',alt:'Writing notes with a pen'}
 ];
 const routine=[
 ['04:00–05:00 AM','Wake up','As early as 4; usually around 5.'],
@@ -475,7 +545,7 @@ const catPhotos=[
 {src:'/images/cat-portrait.webp',title:'A little portrait',alt:'A white cat sitting on a chair',detail:'Another familiar face from my cat photo collection.'}
 ];
 const languageDetails=[
-{label:'French',status:'BASIC A1',body:'French was my third language during schooling in Saudi Arabia. I continued learning it after moving to India. My current understanding and comprehension are at a basic A1 level, and one of my goals is to become really good at French.'},
+{label:'French',status:'BASIC A1',body:'French was my third language during schooling in Saudi Arabia. My current understanding and comprehension are at a basic A1 level, and one of my goals is to become really good at French.'},
 {label:'Arabic',status:'BASIC A1',body:'I currently have basic A1-level understanding and comprehension of Arabic. I also have a creative connection to the language through Arabic calligraphy, where I was a state-level winner.'},
 {label:'Malayalam',status:'LEARNING JOURNEY',body:'I started learning Malayalam from Grade 9 onwards after continuing my schooling in India.'},
 {label:'German',status:'FUTURE GOAL',body:'German is on my future learning list. I would love to add it to the languages I can use confidently.'}
@@ -504,9 +574,7 @@ h('div',{className:'photo-stamp'},h('strong',null,'♡'),'CAT PERSON'))),
 h('div',{className:'personal-marquee','aria-label':'Travel, stories, crafts, cats and language learning'},
 h('div',{className:'personal-marquee-track'},[0,1].map(i=>h(React.Fragment,{key:i},['TRAVEL','K-DRAMAS','CRAFTS','CATS','LANGUAGES','LITTLE BIG PLANS'].map(x=>h(React.Fragment,{key:x+i},h('span',null,x),h('b',null,'✳'))))))),
 h('section',{className:'wrap personal-section reveal'},
-h('div',{className:'personal-section-head'},
-h('div',null,h(Eyebrow,null,'01 / THINGS I LOVE'),h('h2',{className:'personal-heading'},'A few of my favourite things.')),
-h('p',{className:'personal-sub'},'Travel, stories, creativity and the small things I enjoy.')),
+
 h('div',{className:'hobby-grid'},interestFeatures.map(item=>h('article',{className:'interest-photo '+item.style,key:item.n},
 h('button',{className:'click-card','aria-expanded':expanded==='hobby-'+item.n,onClick:()=>toggle('hobby-'+item.n)},
 h('img',{src:item.image,alt:item.alt,loading:'lazy'}),
@@ -553,7 +621,7 @@ h('button',{className:'plan-row'+(item.done?' is-done':''),'aria-expanded':expan
 h('span',{className:'plan-check','aria-hidden':true},item.done?'✓':'•'),
 h('span',{className:'plan-no'},String(i+1).padStart(2,'0')),
 h('span',{className:'plan-title'},item.label),
-h('span',{className:'plan-status'},item.done?'COMPLETED':'TO DO')),
+),
 expanded==='goal-'+i?h('div',{className:'plan-detail'},item.detail):null))),
 h('div',{className:'watch-row'},
 h('div',{className:'cinema-photo'},h('img',{src:'https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=1200&q=85',alt:'A cinematic movie theatre',loading:'lazy'}),h('div',{className:'cinema-caption'},h('small',null,'RECENTLY WATCHED'),h('strong',null,'Sense and Sensibility'))),
