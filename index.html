@@ -504,57 +504,58 @@ footer{border-top:1px solid var(--line);background:#0d0912}.foot{min-height:86px
 @media(max-width:720px){.story-dialog{padding:25px 20px}.day-sky{height:230px}.day-readout{grid-template-columns:1fr;gap:16px;padding:19px}.day-events{grid-template-columns:repeat(2,1fr)}.day-event:last-child{grid-column:span 2}}
 
 
-/* Full-screen paint-flow page transition: exactly 0.8 seconds */
-.page-paint{
+/* Full-screen water-ripple transition — 1.2 seconds */
+.page-ripple{
  position:fixed;
- z-index:9999;
- top:-5vh;
- left:-110vw;
- width:120vw;
- height:110vh;
- pointer-events:none;
- background:
-  radial-gradient(ellipse at 18% 18%,rgba(235,197,220,.9) 0%,rgba(235,197,220,0) 31%),
-  radial-gradient(ellipse at 76% 72%,rgba(94,167,156,.55) 0%,rgba(94,167,156,0) 35%),
-  linear-gradient(116deg,#26152d 0%,#69466f 35%,#b883ae 63%,#e0b8cb 100%);
- clip-path:polygon(
-  0 0, 88% 0, 92% 3%, 89% 7%, 97% 11%, 91% 16%, 96% 21%,
-  90% 27%, 98% 32%, 91% 38%, 97% 44%, 90% 50%, 98% 56%,
-  91% 62%, 97% 68%, 90% 74%, 96% 80%, 90% 86%, 97% 92%,
-  91% 96%, 94% 100%, 0 100%
- );
- animation:paintAcross .8s cubic-bezier(.72,0,.24,1) both;
- filter:drop-shadow(0 0 22px rgba(205,157,201,.24));
-}
-.page-paint:before{
- content:'';
- position:absolute;
  inset:0;
- opacity:.52;
- background:
-  repeating-linear-gradient(172deg,transparent 0 24px,rgba(255,255,255,.08) 25px,transparent 29px 53px),
-  radial-gradient(ellipse at 42% 45%,rgba(255,255,255,.14),transparent 48%);
- mix-blend-mode:screen;
+ z-index:9999;
+ pointer-events:none;
+ overflow:hidden;
+ isolation:isolate;
 }
-.page-paint:after{
+.page-ripple:before{
  content:'';
  position:absolute;
- top:-2%;
- right:4%;
- width:12%;
- height:104%;
- background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,238,248,.62),rgba(255,255,255,0));
- filter:blur(13px);
- opacity:.85;
+ inset:-8%;
+ background:
+  radial-gradient(ellipse at 50% 46%,rgba(246,219,239,.96) 0%,rgba(211,169,215,.97) 17%,rgba(130,108,163,.98) 43%,rgba(43,34,65,.99) 72%,#130e1b 100%);
+ clip-path:circle(0% at 50% 50%);
+ animation:waterVeil 1.2s cubic-bezier(.65,0,.25,1) both;
 }
-@keyframes paintAcross{
- 0%{transform:translateX(0)}
- 44%{transform:translateX(110vw)}
- 56%{transform:translateX(110vw)}
- 100%{transform:translateX(220vw)}
+.page-ripple:after{
+ content:'';
+ position:absolute;
+ left:50%;
+ top:50%;
+ width:34vmin;
+ height:34vmin;
+ border:1px solid rgba(255,246,255,.72);
+ border-radius:50%;
+ transform:translate(-50%,-50%) scale(.12);
+ opacity:0;
+ box-shadow:
+  0 0 0 18px rgba(231,202,236,.18),
+  0 0 0 42px rgba(194,173,222,.12),
+  0 0 0 70px rgba(160,177,210,.08),
+  0 0 38px rgba(255,234,255,.34);
+ animation:waterRings 1.2s cubic-bezier(.18,.72,.22,1) both;
+}
+@keyframes waterVeil{
+ 0%{clip-path:circle(0% at 50% 50%);opacity:0}
+ 9%{opacity:1}
+ 43%{clip-path:circle(155% at 50% 50%);opacity:1}
+ 58%{clip-path:circle(155% at 50% 50%);opacity:1}
+ 100%{clip-path:circle(0% at 50% 50%);opacity:0}
+}
+@keyframes waterRings{
+ 0%{transform:translate(-50%,-50%) scale(.12);opacity:0}
+ 13%{opacity:.9}
+ 48%{transform:translate(-50%,-50%) scale(4.8);opacity:.62}
+ 70%{transform:translate(-50%,-50%) scale(5.4);opacity:.28}
+ 100%{transform:translate(-50%,-50%) scale(6);opacity:0}
 }
 @media(prefers-reduced-motion:reduce){
- .page-paint{animation-duration:.01ms;filter:none}
+ .page-ripple:before,.page-ripple:after{animation-duration:.01ms;opacity:0}
 }
 
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}.personal-marquee-track{animation:none}.reveal{opacity:1;transform:none}}
@@ -814,7 +815,7 @@ const[transitioning,setTransitioning]=useState(false);
 const switchPage=target=>{
  if(target===page||transitioning)return;
  setTransitioning(true);
- window.setTimeout(()=>{setPage(target);window.scrollTo({top:0,behavior:'instant'})},400);
+ window.setTimeout(()=>{setPage(target);window.scrollTo({top:0,behavior:'instant'})},600);
  window.setTimeout(()=>setTransitioning(false),800);
 };
 React.useEffect(()=>{
@@ -830,7 +831,7 @@ return h(React.Fragment,null,
  h(Header,{page,setPage:switchPage}),
  page==='professional'?h(Professional,{setPage:switchPage}):h('main',null,h(Personal)),
  h(Footer,{page,setPage:switchPage}),
- transitioning?h('div',{className:'page-paint','aria-hidden':true}):null
+ transitioning?h('div',{className:'page-ripple','aria-hidden':true}):null
 );
 }
 createRoot(document.getElementById('root')).render(h(React.StrictMode,null,h(App)));
