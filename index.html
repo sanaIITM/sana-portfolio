@@ -600,11 +600,15 @@ footer{border-top:1px solid var(--line);background:#0d0912}.foot{min-height:86px
 .garden-egg-glow{position:absolute;inset:-7px;border:1px solid rgba(246,225,172,.2);border-radius:50%;animation:eggPulse 2.4s ease-in-out infinite}
 @keyframes eggPulse{0%,100%{transform:scale(.82);opacity:.15}50%{transform:scale(1.25);opacity:.9}}
 .garden-egg-mark{font-size:17px;position:relative;z-index:1}
+.garden-egg{min-width:44px;min-height:44px;background:rgba(22,45,30,.28);border:1px solid rgba(230,220,174,.24);box-shadow:0 0 16px rgba(235,219,153,.12)}
+.garden-egg:focus-visible{outline:2px solid #eadca7;outline-offset:4px}
+
 .garden-footnote{position:absolute;bottom:13px;left:0;right:0;text-align:center;color:#b4c0a9;font:italic 13px var(--serif);letter-spacing:.04em}
 .garden-fireflies{position:fixed;inset:0;pointer-events:none;z-index:1}
 .cat-discovery{position:fixed;z-index:5;right:clamp(14px,4vw,55px);bottom:clamp(14px,4vh,38px);width:min(320px,calc(100vw - 28px));padding:12px;background:linear-gradient(145deg,#34253a,#1d3027);border:1px solid rgba(227,199,160,.56);border-radius:16px;box-shadow:0 22px 55px rgba(0,0,0,.52);animation:discoveryPop .4s cubic-bezier(.2,.8,.2,1) both}
 @keyframes discoveryPop{from{opacity:0;transform:translateY(18px) scale(.94)}to{opacity:1;transform:translateY(0) scale(1)}}
-.cat-discovery-photo{width:100%;aspect-ratio:1/1;border-radius:9px;border:1px solid rgba(239,214,174,.28);background-repeat:no-repeat;box-shadow:inset 0 0 32px rgba(0,0,0,.1)}
+.cat-discovery-photo{width:100%;aspect-ratio:4/3;overflow:hidden;border-radius:9px;border:1px solid rgba(239,214,174,.28);background:rgba(20,36,27,.5);box-shadow:inset 0 0 32px rgba(0,0,0,.1)}
+.cat-discovery-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
 .cat-discovery-caption{padding:13px 6px 5px}
 .cat-discovery-caption small{font:8px var(--mono);letter-spacing:.18em;color:#e1c18f}
 .cat-discovery-caption h3{font:500 23px var(--serif);color:#f6e9dc;margin:5px 0}
@@ -815,10 +819,10 @@ const [open,setOpen]=useState(false);
 const [found,setFound]=useState([]);
 const [active,setActive]=useState(null);
 const cats=[
-{id:'pair',title:'The lounging pair',note:'Two companions, perfectly at home.',pos:'0% 0%',left:'12%',top:'27%'},
-{id:'kittens',title:'The tiny explorers',note:'A curious little crew on the move.',pos:'100% 0%',left:'44%',top:'14%'},
-{id:'closeup',title:'The curious face',note:'A close-up that deserves its own portrait.',pos:'0% 100%',left:'74%',top:'49%'},
-{id:'orange',title:'The little lookout',note:'A warm patch of orange in the garden.',pos:'100% 100%',left:'84%',top:'82%'}
+{id:'pair',title:'The lounging pair',note:'Two companions, perfectly at home.',image:'/images/cat-garden-pair.webp',left:'12%',top:'27%'},
+{id:'kittens',title:'The tiny explorers',note:'A curious little crew on the move.',image:'/images/cat-garden-kittens.webp',left:'44%',top:'14%'},
+{id:'closeup',title:'The curious face',note:'A close-up that deserves its own portrait.',image:'/images/cat-garden-closeup.webp',left:'74%',top:'49%'},
+{id:'orange',title:'The little lookout',note:'A warm patch of orange in the garden.',image:'/images/cat-garden-orange.webp',left:'84%',top:'82%'}
 ];
 const discover=cat=>{
  setFound(current=>current.includes(cat.id)?current:[...current,cat.id]);
@@ -868,7 +872,7 @@ h('span',{className:'garden-egg-glow'}),h('span',{className:'garden-egg-mark'},f
 h('div',{className:'garden-footnote'},found.length===4?'Every little face has been found. The garden is yours.':'Listen for a rustle. Follow a glimmer.')),
 selected?h('aside',{className:'cat-discovery'},
 h('button',{type:'button',className:'garden-close discovery-close','aria-label':'Close discovery',onClick:()=>setActive(null)},'×'),
-h('div',{className:'cat-discovery-photo',style:{backgroundImage:"url('/images/cat-garden-atlas.webp')",backgroundSize:'200% 200%',backgroundPosition:selected.pos}}),
+h('div',{className:'cat-discovery-photo'},h('img',{src:selected.image,alt:selected.title,loading:'eager'})),
 h('div',{className:'cat-discovery-caption'},h('small',null,'A LITTLE DISCOVERY'),h('h3',null,selected.title),h('p',null,selected.note))):null,
 h('footer',{className:'garden-footer'},'TAKE YOUR TIME · THERE IS NO WRONG WAY THROUGH THE MAZE')):null
 );
