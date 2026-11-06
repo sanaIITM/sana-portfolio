@@ -305,7 +305,7 @@ footer{border-top:1px solid var(--line);background:#0d0912}.foot{min-height:86px
 .life-track{
   display:grid;
   grid-auto-flow:column;
-  grid-auto-columns:calc((100% - 36px)/2.5);
+  grid-auto-columns:38%;
   gap:18px;
   width:100%;
   overflow-x:auto;
@@ -506,7 +506,7 @@ h('div',{className:'personal-marquee-track'},[0,1].map(i=>h(React.Fragment,{key:
 h('section',{className:'wrap personal-section reveal'},
 h('div',{className:'personal-section-head'},
 h('div',null,h(Eyebrow,null,'01 / THINGS I LOVE'),h('h2',{className:'personal-heading'},'A few of my favourite things.')),
-h('p',{className:'personal-sub'},'Choose a picture to reveal a little more.')),
+h('p',{className:'personal-sub'},'Travel, stories, creativity and the small things I enjoy.')),
 h('div',{className:'hobby-grid'},interestFeatures.map(item=>h('article',{className:'interest-photo '+item.style,key:item.n},
 h('button',{className:'click-card','aria-expanded':expanded==='hobby-'+item.n,onClick:()=>toggle('hobby-'+item.n)},
 h('img',{src:item.image,alt:item.alt,loading:'lazy'}),
@@ -516,7 +516,7 @@ h('section',{className:'wrap personal-section reveal'},
 h('div',{className:'cat-love'},
 h('div',{className:'cat-love-head'},
 h('div',null,h(Eyebrow,null,'02 / MY CAMERA ROLL'),h('h3',null,'I love cats like crazy.')),
-h('p',null,'A few of the little faces that make my camera roll. Select a photo to reveal its story.')),
+h('p',null,'A few of the little faces that make my camera roll.')),
 h('div',{className:'cat-grid'},catPhotos.map((photo,i)=>h('article',{className:'cat-gallery-item'+(expanded==='cat-'+i?' is-open':''),key:photo.src},
 h('button',{className:'cat-photo','aria-expanded':expanded==='cat-'+i,onClick:()=>toggle('cat-'+i)},
 h('img',{src:photo.src,alt:photo.alt,loading:'lazy'}),h('span',null,photo.title)),
@@ -536,7 +536,7 @@ h('div',{className:'life-content'},h('h3',null,item.title))),
 expanded==='life-'+i?h('div',{className:'life-detail'},item.desc,item.credit?h('div',null,h('a',{className:'detail-credit',href:item.credit,target:'_blank',rel:'noreferrer'},'IMAGE SOURCE ↗')):null):null)))),
 h('section',{className:'wrap personal-section reveal'},
 h('div',{className:'personal-section-head'},h('div',null,h(Eyebrow,null,'04 / LANGUAGE CORNER'),h('h2',{className:'personal-heading'},'Dreaming in more than one language.')),
-h('p',{className:'personal-sub'},'Five languages I can read and write. Select a language for its story.')),
+h('p',{className:'personal-sub'},'Five languages I can read and write, and a lifelong interest in learning more.')),
 h('div',{className:'language-zone'},
 h('div',{className:'language-feature'},h('div',{className:'language-number'},'05'),h('div',{className:'language-kicker'},'LANGUAGES I CAN READ AND WRITE'),h('p',null,'My language journey began in school in Saudi Arabia and continued in India.'),h('div',{className:'language-future'},'Next chapters: better French + German')),
 h('div',{className:'language-list'},languageDetails.map(item=>h('div',{className:'language-entry',key:item.label},
