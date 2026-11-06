@@ -458,7 +458,7 @@ footer{border-top:1px solid var(--line);background:#0d0912}.foot{min-height:86px
 }
 
 
-.story-dialog-backdrop{position:fixed;inset:0;z-index:120;background:rgba(6,4,10,.78);backdrop-filter:blur(9px);display:grid;place-items:center;padding:22px;animation:detailFade .18s ease}
+.story-dialog-backdrop{position:fixed;inset:0;z-index:20000;background:rgba(6,4,10,.78);backdrop-filter:blur(9px);display:grid;place-items:center;padding:22px;animation:detailFade .18s ease}
 .story-dialog{width:min(700px,100%);max-height:88vh;overflow:auto;position:relative;padding:34px;background:linear-gradient(145deg,#24192c,#120d19);border:1px solid rgba(220,184,226,.28);box-shadow:0 24px 90px #0009}
 .story-dialog-close{position:absolute;right:19px;top:17px;width:36px;height:36px;border-radius:50%;border:1px solid rgba(230,205,232,.25);background:rgba(255,255,255,.07);color:#fff;font-size:22px;cursor:pointer}
 .story-dialog-kicker{font:9px var(--mono);letter-spacing:.16em;color:#d4a4c5;text-transform:uppercase;margin:0 45px 12px 0}
@@ -723,26 +723,9 @@ h('p',{className:'story-dialog-body'},story.body),
 story.title==='A world of words'?h('div',{className:'story-dialog-languages'},langs.map(x=>h('div',{className:'story-dialog-language',key:x[0]},h('strong',null,x[0]),h('span',null,x[1])))):null,
 h('div',{className:'story-dialog-actions'},h('span',{className:'story-dialog-progress'},'PERSONAL NOTES'),h('button',{onClick:onClose},'Close'))));
 }
-function Personal(){
+function Personal({onOpenStory}){
 const [expanded,setExpanded]=useState(null);
-const [story,setStory]=useState(null);
-const showStory=(title,kicker,body,nextIndex=null)=>setStory({title,kicker,body,nextIndex});
-const closeStory=()=>{
- const next=story?.nextIndex;
- setStory(null);
- if(next!==null&&next!==undefined){
-  setTimeout(()=>{
-   const target=document.getElementById('life-card-'+((next+1)%lifeChapters.length));
-   if(target)target.scrollIntoView({behavior:'smooth',block:'nearest',inline:'start'});
-  },180);
- }
-};
-React.useEffect(()=>{
- if(!story)return;
- const handler=e=>{if(e.key==='Escape')closeStory()};
- window.addEventListener('keydown',handler);
- return()=>window.removeEventListener('keydown',handler);
-},[story]);
+const showStory=onOpenStory;
 const toggle=(key)=>setExpanded(current=>current===key?null:key);
 const hobbyStories={
 '01':'I have visited Saudi Arabia, the United Arab Emirates, Bahrain, Oman, Kuwait, Qatar and Sri Lanka so far. I love discovering new places, experiencing different cultures and collecting memories. Seven countries down, and plenty more on my travel wish list.',
@@ -766,7 +749,7 @@ h('div',{className:'personal-marquee-track'},[0,1].map(i=>h(React.Fragment,{key:
 h('section',{className:'wrap personal-section reveal'},
 
 h('div',{className:'hobby-grid'},interestFeatures.map(item=>h('article',{className:'interest-photo '+item.style,key:item.n},
-h('button',{className:'click-card','aria-expanded':expanded==='hobby-'+item.n,onClick:()=>showStory(item.title,item.type,hobbyStories[item.n])},
+h('button',{type:'button',className:'click-card',onClick:()=>onOpenStory(item.title,item.type,hobbyStories[item.n])},
 h('img',{src:item.image,alt:item.alt,loading:'lazy'}),
 h('div',{className:'interest-copy'},h('h3',null,item.title))),
 expanded==='hobby-'+item.n?h('div',{className:'inline-detail'},hobbyStories[item.n]):null))),
@@ -776,7 +759,7 @@ h('div',{className:'cat-love-head'},
 h('div',null,h(Eyebrow,null,'02 / MY CAMERA ROLL'),h('h3',null,'I love cats like crazy.')),
 h('p',null,'A few of the little faces that make my camera roll.')),
 h('div',{className:'cat-grid'},catPhotos.map((photo,i)=>h('article',{className:'cat-gallery-item'+(expanded==='cat-'+i?' is-open':''),key:photo.src},
-h('button',{className:'cat-photo','aria-expanded':expanded==='cat-'+i,onClick:()=>showStory(photo.title,'FROM MY CAT PHOTO COLLECTION',photo.detail)},
+h('button',{type:'button',className:'cat-photo',onClick:()=>onOpenStory(photo.title,'FROM MY CAT PHOTO COLLECTION',photo.detail)},
 h('img',{src:photo.src,alt:photo.alt,loading:'lazy'}),h('span',null,photo.title)),
 expanded==='cat-'+i?h('div',{className:'inline-detail'},photo.detail):null))),
 h('div',{className:'cat-tagline'},'No such thing as too many cat photos.'))),
@@ -788,7 +771,7 @@ h('div',{className:'carousel-controls',style:{marginTop:'14px'}},
 h('button',{className:'carousel-arrow','aria-label':'Scroll life stories left',onClick:()=>document.getElementById('lifeTrack')?.scrollBy({left:-420,behavior:'smooth'})},'←'),
 h('button',{className:'carousel-arrow','aria-label':'Scroll life stories right',onClick:()=>document.getElementById('lifeTrack')?.scrollBy({left:420,behavior:'smooth'})},'→'))),
 h('div',{className:'life-track',id:'lifeTrack',tabIndex:0},lifeChapters.map((item,i)=>h('article',{className:'life-card life-trigger',id:'life-card-'+i,key:item.title},
-h('button',{className:'life-trigger','aria-expanded':expanded==='life-'+i,onClick:()=>showStory(item.title,item.label,item.desc,i)},
+h('button',{type:'button',className:'life-trigger',onClick:()=>onOpenStory(item.title,item.label,item.desc,i)},
 h('div',{className:'life-photo'},h('img',{src:item.img,alt:item.alt,loading:'lazy'})),
 h('div',{className:'life-content'},h('h3',null,item.title))),
 expanded==='life-'+i?h('div',{className:'life-detail'},item.desc,null):null)))),
@@ -805,13 +788,24 @@ expanded==='goal-'+i?h('div',{className:'plan-detail'},item.detail):null))),
 h('div',{className:'watch-row'},
 h('div',{className:'cinema-photo'},h('img',{src:'https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=1200&q=85',alt:'A cinematic movie theatre',loading:'lazy'}),h('div',{className:'cinema-caption'},h('small',null,'RECENTLY WATCHED'),h('strong',null,'Sense and Sensibility'))),
 h('div',{className:'watch-note'},h('small',null,'A LITTLE SCREEN TIME'),h('p',null,'K-dramas and films are a favourite way to unwind. The last film I watched was Sense and Sensibility (2026).')))),
-h('div',{className:'wrap personal-thanks reveal'},h('h2',null,'Still curious.',h('br'),h('em',null,'Still becoming.')),h('p',null,'MORE PLACES · MORE LANGUAGES · MORE STORIES')),
-h(StoryDialog,{story,onClose:closeStory})
+h('div',{className:'wrap personal-thanks reveal'},h('h2',null,'Still curious.',h('br'),h('em',null,'Still becoming.')),h('p',null,'MORE PLACES · MORE LANGUAGES · MORE STORIES'))
 ))}
 function Footer({page,setPage}){const choose=x=>{setPage(x);window.scrollTo({top:0,behavior:'smooth'})};return h('footer',null,h('div',{className:'wrap foot'},h('a',{className:'footmark',href:'#top',onClick:()=>choose('professional')},'s.'),h('p',null,'Made with curiosity by Sana Bint Salim.'),h('div',{className:'footlinks'},h('button',{className:page==='professional'?'active':'',onClick:()=>choose('professional')},'Professional'),h('button',{className:page==='personal'?'active':'',onClick:()=>choose('personal')},'Personal'),h('a',{href:'https://github.com/sanaIITM',target:'_blank',rel:'noreferrer'},'GitHub ↗')),h('span',{className:'footyear'},'© 2026')))}
 function App(){
 const[page,setPage]=useState('professional');
 const[transitioning,setTransitioning]=useState(false);
+const[story,setStory]=useState(null);
+const showStory=(title,kicker,body,nextIndex=null)=>setStory({title,kicker,body,nextIndex});
+const closeStory=()=>{
+ const next=story?.nextIndex;
+ setStory(null);
+ if(next!==null&&next!==undefined){
+  setTimeout(()=>{
+   const target=document.getElementById('life-card-'+((next+1)%lifeChapters.length));
+   if(target)target.scrollIntoView({behavior:'smooth',block:'nearest',inline:'start'});
+  },180);
+ }
+};
 const switchPage=target=>{
  if(target===page||transitioning)return;
  setTransitioning(true);
@@ -829,8 +823,9 @@ React.useEffect(()=>{
 },[page]);
 return h(React.Fragment,null,
  h(Header,{page,setPage:switchPage}),
- page==='professional'?h(Professional,{setPage:switchPage}):h('main',null,h(Personal)),
+ page==='professional'?h(Professional,{setPage:switchPage}):h('main',null,h(Personal,{onOpenStory:showStory})),
  h(Footer,{page,setPage:switchPage}),
+ h(StoryDialog,{story,onClose:closeStory}),
  transitioning?h('div',{className:'page-ripple','aria-hidden':true}):null
 );
 }
