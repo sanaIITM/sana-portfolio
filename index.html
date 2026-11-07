@@ -642,6 +642,36 @@ footer{border-top:1px solid var(--line);background:#0d0912}.foot{min-height:86px
 .contact-social-icon:hover{color:#fff;opacity:1;transform:translateY(-4px) scale(1.12);filter:drop-shadow(0 0 8px rgba(223,177,216,.45))}
 .contact-social-icon:focus-visible{outline:1px solid #e7c5df;outline-offset:6px;border-radius:3px}
 @media(max-width:700px){.contact-socials{gap:20px;margin-top:28px}.contact-social-icon{width:32px;height:32px}.contact-social-icon svg{width:23px;height:23px}.skillrow{grid-template-columns:40px minmax(0,1fr);gap:14px}}
+
+/* Vehicle Parking App — live deployed UI preview */
+.parking-showcase{padding-top:8px}
+.parking-showcase-head{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;margin-bottom:24px}
+.parking-showcase-head>div{max-width:680px}
+.parking-showcase-head h2{font:500 clamp(34px,5vw,55px)/1.05 var(--serif);letter-spacing:-.035em;color:var(--paper);margin:12px 0}
+.parking-showcase-head p{font-size:13px;line-height:1.85;color:var(--muted);max-width:620px;margin:0}
+.parking-open-link{flex:0 0 auto;padding:13px 17px;border:1px solid rgba(221,183,213,.4);color:#edcde4;text-decoration:none;font:9px var(--mono);letter-spacing:.12em;transition:background .2s,color .2s,transform .2s}
+.parking-open-link:hover{background:#e5c1dc;color:#241627;transform:translateY(-2px)}
+.parking-browser{border:1px solid rgba(221,183,213,.27);background:#10101a;box-shadow:0 26px 75px rgba(0,0,0,.3);overflow:hidden}
+.parking-browser-bar{height:48px;display:grid;grid-template-columns:70px minmax(0,1fr) 44px;gap:14px;align-items:center;padding:0 15px;background:linear-gradient(180deg,#29232e,#1b1721);border-bottom:1px solid rgba(221,183,213,.15)}
+.parking-browser-dots{display:flex;align-items:center;gap:6px}
+.parking-browser-dots i{width:8px;height:8px;border-radius:50%;background:#775e77}
+.parking-browser-dots i:first-child{background:#ce8d91}
+.parking-browser-dots i:nth-child(2){background:#d5b67d}
+.parking-browser-dots i:nth-child(3){background:#8daf93}
+.parking-browser-address{height:27px;min-width:0;display:flex;align-items:center;gap:8px;padding:0 12px;border:1px solid rgba(255,255,255,.07);border-radius:4px;background:rgba(0,0,0,.2);color:#a99eac;font:9px var(--mono);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.parking-browser-address span{color:#9fc0a7}
+.parking-browser-bar>a{color:#c9b8ca;text-decoration:none;text-align:center;font:16px var(--mono)}
+.parking-iframe-wrap{height:clamp(560px,58vw,760px);min-height:560px;background:#050814;position:relative}
+.parking-live-iframe{display:block;width:100%;height:100%;border:0;background:#050814}
+.parking-showcase-foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;padding-top:13px;color:#9d8fa0;font:8px var(--mono);letter-spacing:.1em;line-height:1.7}
+@media(max-width:700px){
+ .parking-showcase-head{align-items:flex-start;flex-direction:column}
+ .parking-open-link{align-self:flex-start}
+ .parking-browser-bar{grid-template-columns:42px minmax(0,1fr) 24px;gap:8px;padding:0 10px}
+ .parking-iframe-wrap{height:680px;min-height:680px}
+ .parking-showcase-foot{flex-direction:column;gap:5px}
+}
+
 </style>
 </head>
 <body><div id="root"></div>
@@ -656,7 +686,7 @@ const projects=[
 {n:'03',kind:'Research · In progress',cat:'NLP · RESEARCH',icon:'✧',title:'Emotion-Aware Sentiment Analysis',desc:'Research into explainable sentiment and emotion analysis for Malayalam-English code-mixed social media text, including implicit emotion and retrieval-augmented methods.',focus:['Literature review and research gap analysis','Code-mixed text processing','Model and retrieval pipeline exploration','Explainability and relevance evaluation'],tags:['MuRIL','mBERT','NLP','RAG','LLM prompting'],links:[]},
 {n:'04',kind:'Individual · Completed',cat:'FULL-STACK DEVELOPMENT',icon:'⌘',title:'Car Rental Application',desc:'A full-stack car rental application with vehicle discovery, booking workflows, authentication and a React-based user interface.',focus:['React frontend and user flows','REST API development and integration','MongoDB schemas and operations','Authentication and deployment configuration'],tags:['React','Vite','Node.js','Express','MongoDB'],links:[['Frontend','https://github.com/sanaIITM/car_rental_app_frontend'],['Backend','https://github.com/sanaIITM/car_rental_app']]},
 {n:'05',kind:'Team project · Completed',cat:'CAMPUS WEB APPLICATION',icon:'⌗',title:'RITfix',desc:'A campus complaint-resolution and asset-management platform designed around role-based workflows, ticket tracking and emergency alerts.',focus:['Database design and SQLite models','Complaint and ticket workflows','Role-based access and emergency alerts','Background tasks, caching and API integration'],tags:['Flask','Vue.js','SQLite','Redis','Celery'],links:[]},
-{n:'06',kind:'Individual · Completed',cat:'IIT MADRAS · WEB APPLICATION',icon:'⌖',title:'Vehicle Parking App V2',desc:'A multi-user parking reservation platform with admin dashboards, booking and release flows, cached insights and scheduled background jobs.',focus:['Parking lot and reservation workflows','Admin analytics and dashboard charts','Scheduled reminders and monthly reports','Redis caching and asynchronous exports'],tags:['Flask','Vue.js','SQLite','Redis','Celery'],links:[['Source code','https://github.com/sanaIITM/Vehicle_Parking_App_V2']]}
+{n:'06',kind:'Individual · Completed',cat:'IIT MADRAS · WEB APPLICATION',icon:'⌖',title:'Vehicle Parking App V2',desc:'A multi-user parking reservation platform with admin dashboards, booking and release flows, cached insights and scheduled background jobs.',focus:['Parking lot and reservation workflows','Admin analytics and dashboard charts','Scheduled reminders and monthly reports','Redis caching and asynchronous exports'],tags:['Flask','Vue.js','SQLite','Redis','Celery'],links:[['Live application','https://vehicle-parking-app-v2-c2m1.onrender.com'],['Source code','https://github.com/sanaIITM/Vehicle_Parking_App_V2']]}
 ];
 const skills=[['⌘','Programming','Python · Java · C · JavaScript · SQL · HTML · CSS · TypeScript'],['✳','Data & AI','Pandas · NumPy · Scikit-learn · NLP · Transformers · XGBoost · LightGBM'],['▣','Development','React · Vue.js · Flask · FastAPI · Node.js · Express · REST APIs'],['◈','Data & Platforms','MongoDB · SQLite · MySQL · PostgreSQL · DuckDB · Redis · Celery'],['⌘','Tools','Git · GitHub · Jupyter · Kaggle · Colab · Postman · Render · Linux']];
 const education=[['2023 — 2027','B.Tech, Computer Science and Engineering','Government Rajiv Gandhi Institute of Technology, Pampady','CGPA · 9.09 / 10'],['2024 — 2028','BS, Data Science and Applications','Indian Institute of Technology Madras','CGPA · 7.0 / 10 · Diploma in Programming completed Sep 2025'],['2022','Class XII · CBSE',"St. Antony's Public School",'CGPA · 9.4'],['2020','Class X · CBSE',"St. Antony's Public School",'CGPA · 9.62']];
@@ -665,6 +695,39 @@ function Eyebrow(p){return h('div',{className:'eyebrow'},p.children)}
 function Header({page,setPage}){const[open,setOpen]=useState(false);const choose=x=>{setPage(x);setOpen(false);window.scrollTo({top:0,behavior:'smooth'})};return h('header',null,h('a',{className:'brand',href:'#top',onClick:()=>choose('professional')},h('span',{className:'brandmark'},'s.'),'SANA BINT SALIM'),h('nav',{className:open?'open':''},h('button',{className:page==='professional'?'active':'',onClick:()=>choose('professional')},'Professional'),h('button',{className:page==='personal'?'active':'',onClick:()=>choose('personal')},'Personal'),h('a',{href:'https://github.com/sanaIITM',target:'_blank',rel:'noreferrer'},'GitHub ↗')),h('button',{className:'menu',onClick:()=>setOpen(!open),'aria-label':'Toggle navigation'},open?'×':'☰'))}
 function Title({eyebrow,title,desc}){return h('div',{className:'sectiontitle'},h(Eyebrow,null,eyebrow),h('h2',null,title),desc&&h('p',null,desc))}
 function Hero({setPage}){return h('section',{className:'hero wrap',id:'top'},h('div',{className:'hero-copy'},h(Eyebrow,null,'SOFTWARE · DATA · CURIOSITY'),h('h1',null,'Exploring ideas.',h('br'),h('em',null,'Engineering'),' possibilities.'),h('p',{className:'lead'},'I’m Sana — a computer science and data science student interested in building thoughtful software and exploring how machine learning can make sense of real-world information.'),h('div',{className:'actions'},h('a',{className:'btn primary',href:'#projects'},'Explore my work ↗'),h('button',{className:'btn quiet',onClick:()=>setPage('personal')},'A little beyond work →')),h('div',{className:'meta'},h('span',null,'⌖ Kerala, India'),h('span',null,h('i',{className:'dot'}),' Open to learning & opportunities'))),h('div',{className:'art'},h('div',{className:'glow'}),h('div',{className:'orbit o1'}),h('div',{className:'orbit o2'}),h('div',{className:'orbit o3'}),h('div',{className:'core'},h('b',null,'SB'),h('small',null,'CURIOUS BY NATURE')),h('div',{className:'sticker s1'},'✧ ideas in motion'),h('div',{className:'sticker s2'},'— learning, always'),h('span',{className:'star st1'},'✳'),h('span',{className:'star st2'},'✦')),h('a',{className:'scroll',href:'#intro'},'SCROLL TO EXPLORE ↓'))}
+function VehicleParkingPreview(){
+return h('section',{className:'section wrap parking-showcase',id:'parking-preview'},
+h('div',{className:'parking-showcase-head'},
+h('div',null,
+h(Eyebrow,null,'LIVE PROJECT · IIT MADRAS'),
+h('h2',null,'Inside the parking app.'),
+h('p',null,'A live look at the deployed Vehicle Parking App V2 interface. Explore the actual application below, or open it separately for a full-screen experience.')
+),
+h('a',{className:'parking-open-link',href:'https://vehicle-parking-app-v2-c2m1.onrender.com',target:'_blank',rel:'noreferrer'},'OPEN LIVE APP ↗')
+),
+h('div',{className:'parking-browser'},
+h('div',{className:'parking-browser-bar'},
+h('div',{className:'parking-browser-dots'},h('i',null),h('i',null),h('i',null)),
+h('div',{className:'parking-browser-address'},h('span',null,'↗'),' vehicle-parking-app-v2-c2m1.onrender.com'),
+h('a',{href:'https://vehicle-parking-app-v2-c2m1.onrender.com',target:'_blank',rel:'noreferrer','aria-label':'Open Vehicle Parking App in a new tab'},'↗')
+),
+h('div',{className:'parking-iframe-wrap'},
+h('iframe',{
+className:'parking-live-iframe',
+src:'https://vehicle-parking-app-v2-c2m1.onrender.com/',
+title:'Live Vehicle Parking App V2 interface',
+loading:'lazy',
+referrerPolicy:'strict-origin-when-cross-origin',
+allow:'clipboard-read; clipboard-write'
+})
+)
+),
+h('div',{className:'parking-showcase-foot'},
+h('span',null,'FLASK · VUE.JS · SQLITE · REDIS · CELERY'),
+h('span',null,'ADMIN & USER VIEWS · RESERVATIONS · DASHBOARD ANALYTICS')
+)
+);
+}
 function Projects(){return h('section',{className:'section wrap',id:'projects'},h(Title,{eyebrow:'02 / SELECTED WORK',title:h(React.Fragment,null,'A collection of things',h('br'),h('em',null,'I’ve been building.')),desc:'A mix of individual builds, team projects and ongoing research. Each project reflects a different way of exploring a problem.'}),h('div',{className:'grid'},projects.map(p=>h('article',{className:'project',key:p.n},h('div',{className:'ptop'},h('span',{className:'num'},'/'+p.n),h('span',{className:'kind'},p.kind)),h('div',{className:'pvisual'},h('div',{className:'halo'}),h('div',{className:'symbol'},p.icon),h('span',{className:'caption'},p.cat)),h('div',{className:'pcontent'},h('h3',null,p.title),h('p',{className:'summary'},p.desc),h('div',{className:'focus'},h('span',{className:'micro'},'FOCUS'),p.focus.map(x=>h('span',{key:x},x))),h('div',{className:'tags'},p.tags.map(x=>h('span',{key:x},x))),p.links.length?h('div',{className:'plink'},p.links.map(x=>h('a',{href:x[1],target:'_blank',rel:'noreferrer',key:x[1]},x[0]))):null)))))}
 function Skills(){return h('section',{className:'skills'},h('div',{className:'wrap skillgrid'},h('div',{className:'skillsintro'},h(Eyebrow,null,'03 / TOOLKIT'),h('h2',null,'Tools for',h('br'),h('em',null,'turning ideas'),h('br'),'into reality.'),h('p',null,'A growing toolkit across programming, data, machine learning and application development.')),h('div',{className:'skilllist'},skills.map((s,i)=>h('div',{className:'skillrow',key:s[1]},h('div',{className:'skillicon'},s[0]),h('div',{className:'skilldetail'},h('h3',null,s[1]),h('p',null,s[2])),)))))}
 function Education(){return h('section',{className:'section wrap edu',id:'education'},h('div',null,h(Eyebrow,null,'04 / LEARNING PATH'),h('div',{className:'sectiontitle'},h('h2',null,'Learning is a',h('br'),h('em',null,'long game.')),h('p',null,'Formal education, supplemented by independent exploration and project work.'))),h('div',{className:'edutimeline'},education.map(e=>h('div',{className:'eduitem',key:e[1]},h('i',{className:'edudot'}),h('div',{className:'year'},e[0]),h('div',null,h('h3',null,e[1]),h('p',null,e[2]),h('small',null,e[3]))))),h('div',{className:'credentials'},h('div',{className:'ctitle'},'✧  ADDITIONAL LEARNING'),certs.map(c=>h('div',{className:'credrow',key:c[1]},h('span',null,c[0]),h('strong',null,c[1]),h('small',null,c[2])))))}
@@ -694,7 +757,7 @@ return h('section',{className:'contact'},
  )
 )}
 
-function Professional({setPage}){return h(React.Fragment,null,h(Hero,{setPage}),h('section',{className:'band',id:'intro'},h('div',{className:'wrap introgrid'},h(Eyebrow,null,'01 / THE THROUGH-LINE'),h('div',null,h('p',{className:'statement'},'I enjoy connecting ',h('em',null,'curiosity'),' with code — moving between software engineering, data analysis and language technologies to understand problems and build useful things.'),h('p',{className:'note'},'Currently exploring the intersection of machine learning, natural language processing and practical product development.')))),h(Projects),h(Skills),h(Education),h(Contact))}
+function Professional({setPage}){return h(React.Fragment,null,h(Hero,{setPage}),h('section',{className:'band',id:'intro'},h('div',{className:'wrap introgrid'},h(Eyebrow,null,'01 / THE THROUGH-LINE'),h('div',null,h('p',{className:'statement'},'I enjoy connecting ',h('em',null,'curiosity'),' with code — moving between software engineering, data analysis and language technologies to understand problems and build useful things.'),h('p',{className:'note'},'Currently exploring the intersection of machine learning, natural language processing and practical product development.')))),h(Projects),h(VehicleParkingPreview),h(Skills),h(Education),h(Contact))}
 const personalHobbies=[
 {number:'01',icon:'✈',label:'TRAVEL',title:'Travelling',body:'I enjoy discovering new places, experiencing different cultures and collecting memories. So far, I have visited seven countries.',tags:['Saudi Arabia','UAE','Bahrain','Oman','Kuwait','Qatar','Sri Lanka']},
 {number:'02',icon:'✧',label:'ON-SCREEN STORIES',title:'K-dramas & films',body:'I enjoy getting immersed in good stories, especially Korean dramas and films. A well-told story is one of my favourite ways to unwind.',tags:['K-dramas','Movies','Storytelling']},
